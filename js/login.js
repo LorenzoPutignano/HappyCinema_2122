@@ -105,7 +105,7 @@ function ajax_call_php_login_admin(client_email, client_passw) {
         url: "../php/login.php",
         data: data,
         success: function(ret) {
-            //console.log("Ok Logged")
+            console.log(ret);
             if (ret == "ok") {
                 window.location.href("film_add.html");
             } else {

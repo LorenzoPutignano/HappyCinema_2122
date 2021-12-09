@@ -6,7 +6,7 @@ $pass = $_POST['passwd'];
 try {
     $sql_query = "select email,password from utente where email='".$email."' and password='".$pass."'";
     $result = $conn->query($sql_query);
-    if($result->rowCount() == 1) {
+    if($result->rowCount() > 0) {
         $row = $result->fetch();
         echo "ok";
     }
