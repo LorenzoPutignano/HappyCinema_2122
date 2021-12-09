@@ -15,6 +15,14 @@ $(document).ready(function() {
         var client_passw = $("#client_pass").val();
         ajax_call_php_login(client_email, client_passw);
     });
+    $("#LoginAdmin").click(function(event) {
+        //prendere valori da HTML
+        console.log("cliccato login");
+        var client_email = $("#client_email").val();
+        var client_passw = $("#client_pass").val();
+        ajax_call_php_login_admin(client_email, client_passw);
+    });
+
     $("#bt_film").click(function(event) {
         console.log("film");
         var titolo = $("#titolo").val();
@@ -86,6 +94,30 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
         }
     });
 }
+
+function ajax_call_php_login_admin(client_email, client_passw) {
+    var data = {};
+    data.email = client_email;
+    data.passwd = client_passw;
+
+    $.ajax({
+        type: "POST",
+        url: "../php/login.php",
+        data: data,
+        success: function(ret) {
+            //console.log("Ok Logged")
+            if (ret == "ok") {
+                window.location.href("film_add.html");
+            } else {
+                alert("Wrong data")
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
+
 
 function ajax_call_php_login(client_email, client_passw) {
     var data = {};
