@@ -6,11 +6,11 @@ $email = $_POST['email'];
 $pass = $_POST['passwd'];
 
 try {
-    $sql_query = "select * from utente where password='" . $pass . "';";
+    $sql_query = "select * from utente where email='" . $email . "';";
     $result = $conn->query($sql_query);
     if($result->rowCount() == 1) {
         foreach($result as $row) {
-            if($row["password"] == $pass) {
+            if($row["email"] == $email) {
                 echo "Err";
             }
         }    
