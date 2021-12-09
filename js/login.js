@@ -109,7 +109,8 @@ function ajax_call_php_login_admin(admin_id, admin_passw) {
         success: function(ret) {
             console.log(ret);
             if (ret == "ok") {
-                location.href = "film_add.html";
+                $("#loginform").hide();
+                $("#addfilm").show();
             } else {
                 alert("Wrong data")
             }
