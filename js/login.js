@@ -18,8 +18,8 @@ $(document).ready(function() {
     $("#LoginAdmin").click(function(event) {
         //prendere valori da HTML
         console.log("cliccato login");
-        var client_email = $("#client_email").val();
-        var client_passw = $("#client_pass").val();
+        var client_email = $("#admin_email").val();
+        var client_passw = $("#admin_pass").val();
         ajax_call_php_login_admin(client_email, client_passw);
     });
 
@@ -107,7 +107,7 @@ function ajax_call_php_login_admin(client_email, client_passw) {
         success: function(ret) {
             console.log(ret);
             if (ret == "ok") {
-                window.location.href("film_add.html");
+                location.href = "film_add.html";
             } else {
                 alert("Wrong data")
             }
