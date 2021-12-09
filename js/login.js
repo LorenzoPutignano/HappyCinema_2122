@@ -25,12 +25,14 @@ $(document).ready(function() {
         var orario2 = $("#orario2").val();
         var descrizione = $("#descrizione").val();
         var durata_film = $("#durata_film").val();
-        ajax_call_films(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film);
+        ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
     });
+
+    ajax_call_films();
 
 });
 
-function ajax_call_films(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film) {
+function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film) {
     var data = {};
     data.titolo = titolo;
     data.genere = genere;
@@ -40,7 +42,7 @@ function ajax_call_films(titolo,genere,data_uscita,orario0,orario1,orario2,descr
     data.orario2 = orario2;
     data.descrizione = descrizione;
     data.durata_film = durata_film;
-    console.log(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film);
+    console.log(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
 
     $.ajax({
         type: "POST",
