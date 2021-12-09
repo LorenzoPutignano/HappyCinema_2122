@@ -1,6 +1,6 @@
 body {
   position: absolute;
   width: 100%;
-  right: 200px;
+  text-align-last: center;
 }
   
