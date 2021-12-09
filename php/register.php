@@ -14,7 +14,7 @@ try {
                 echo "[INFO] utente già memorizzato!";
             }
         }
-    else {
+    }else {
         $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass."')";
         $result = $conn -> query($sql_query_insert);
         echo "[INFO] utente memorizzato con successo!";
