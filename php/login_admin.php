@@ -3,6 +3,8 @@ require 'conn_DB.php';
 $id = $_POST['id'];
 $pass = $_POST['passwd'];
 
+$aaa = $_COOKIE["nomecookie"];
+
 try {
     $sql_query = "select id,password from admin_user where id='".$id."' and password='".$pass."'";
     $result = $conn->query($sql_query);
