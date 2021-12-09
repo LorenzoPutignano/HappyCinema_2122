@@ -40,7 +40,7 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
             }
         },
         error: function(ret) {
-            alert(ret);
+
         }
     });
 }
@@ -63,7 +63,7 @@ function ajax_call_php_login(client_email, client_passw) {
             }
         },
         error: function(ret) {
-            alert(ret);
+
         }
     });
 }
@@ -93,12 +93,9 @@ function ajax_call_films() {
             html_append += "</table>";
             $("#par").append(card);
 
-
-
-
         },
         error: function(ret) {
-            alert(ret);
+
         }
     });
 }
