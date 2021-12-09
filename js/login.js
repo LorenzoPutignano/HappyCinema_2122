@@ -15,10 +15,49 @@ $(document).ready(function() {
         var client_passw = $("#client_pass").val();
         ajax_call_php_login(client_email, client_passw);
     });
-
-    ajax_call_films();
+    $("#bt_film").click(function(event) {
+        console.log("film");
+        var titolo = $("#titolo").val();
+        var genere = $("#genere").val();
+        var data_uscita = $("#data_uscita").val();
+        var orario0 = $("#orario0").val();
+        var orario1 = $("#orario1").val();
+        var orario2 = $("#orario2").val();
+        var descrizione = $("#descrizione").val();
+        var durata_film = $("#durata_film").val();
+        ajax_call_films(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film);
+    });
 
 });
+
+function ajax_call_films(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film) {
+    var data = {};
+    data.titolo = titolo;
+    data.genere = genere;
+    data.data_uscita = data_uscita;
+    data.orario0 = orario0;
+    data.orario1 = orario1;
+    data.orario2 = orario2;
+    data.descrizione = descrizione;
+    data.durata_film = durata_film;
+    console.log(titolo,genere,data_uscita,orario0,orario1,orario2,descrizione,durata_film);
+
+    $.ajax({
+        type: "POST",
+        url: "../php/insertfilm.php",
+        data: data,
+        success: function(ret) {
+            if (ret == "ok") {
+                alert("Film memorizzato con successo!");
+            } else {
+                alert("Film già memorizzato");
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 function ajax_call_php_register(client_name, client_surname, client_email, client_passw) {
     var data = {};
