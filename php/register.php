@@ -11,13 +11,13 @@ try {
     if($result->rowCount() == 1) {
         foreach($result as $row) {
             if($row["password"] == $pass) {
-                echo "ok";
+                echo "Err";
             }
         }    
     } else {
     $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass."')";
     $result = $conn -> query($sql_query);
-    echo "[INFO] utente memorizzato con successo!";
+    echo "ok";
     }
 } catch (PDOException $exc) {
     echo "error msg: " . $exc->getMessage();
