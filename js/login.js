@@ -78,7 +78,7 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
             } else if (ret == "Err") {
-                alert("L'utente esiste");
+                alert("L'utente esiste, email sbagliata");
             }
         },
         error: function(ret) {
