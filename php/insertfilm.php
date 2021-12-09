@@ -12,7 +12,7 @@ $duratafilm = $_POST['durata_film'];
 
 try {
     $sql_query = "INSERT INTO films (titolo,genere,data_uscita,orario_0,orario_1,orario_2,descrizione,durata_film) values ('".$titolo."','".$genere."','".$data_uscita."','".$orario1."','".$orario2."','".$orario3."','".$descrizione."','".$duratafilm."')";
-    $result = $conn -> query($sql_query_insert);
+    $result = $conn -> query($sql_query);
     echo "ok";
 } catch (PDOException $exc) {
     echo "error msg: " . $exc->getMessage();
