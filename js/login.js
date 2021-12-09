@@ -83,6 +83,7 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
         url: "../php/register.php",
         data: data,
         success: function(ret) {
+            console.log(ret);
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
             } else if (ret == "Err") {

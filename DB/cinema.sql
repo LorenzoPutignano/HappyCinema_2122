@@ -75,7 +75,7 @@ CREATE TABLE `utente` (
   `nome` varchar(30) DEFAULT NULL,
   `cognome` varchar(30) DEFAULT NULL,
   `email` char(50) DEFAULT NULL,
-  `password` char(32) DEFAULT NULL
+  `password` char(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --

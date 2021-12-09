@@ -4,6 +4,7 @@ $nome = $_POST['name'];
 $cognome = $_POST['surname'];
 $email = $_POST['email'];
 $pass = $_POST['passwd'];
+$pass_cript = hash('sha256',$pass);
 
 try {
     $sql_query = "select * from utente where email='" . $email . "';";
@@ -15,7 +16,7 @@ try {
             }
         }    
     } else {
-    $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass."')";
+    $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass_cript."')";
     $result = $conn -> query($sql_query);
     echo "ok";
     }
