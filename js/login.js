@@ -113,7 +113,7 @@ function ajax_call_php_login(client_email, client_passw) {
 function ajax_call_films() {
     $.ajax({
         type: "POST",
-        url: "../php/films.php",
+        url: "./php/films.php",
 
         success: function(ret) {
             console.log(ret)
@@ -129,7 +129,7 @@ function ajax_call_films() {
             //card += "<div class='card' style='width: 18rem;'> <img src='...' class='card-img-top' alt='...'> <div class='card-body'><h5 class='card-title'></h5><p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div>"
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(";")
-                card += "<div class='card mb-3' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[0] + "</h5><h7> Categoria : " + campi[1] + "</h7><br><br><p class='card-text'>" + campi[6] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[3] + "</button><button>" + campi[4] + "</button><button>" + campi[5] + "</button><br><br>Durata film : " + campi[7] + "</small><br><br><button>Acquista</button></p></div></div></div></div>";
+                card += "<div class='card mb-3' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[0] + "</h5><h7> Categoria : " + campi[1] + "</h7><br><br><p class='card-text'>" + campi[6] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[3] + "</button><button>" + campi[4] + "</button><button>" + campi[5] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div>";
             }
             //console.log(nome);
             html_append += "</table>";
