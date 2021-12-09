@@ -34,11 +34,41 @@ $(document).ready(function() {
         var descrizione = $("#descrizione").val();
         var durata_film = $("#durata_film").val();
         ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
+        ajax_call_films_show_table();
     });
 
-    ajax_call_films();
-
 });
+
+function ajax_call_films_show_table() {
+    $.ajax({
+        type: "POST",
+        url: "./php/films.php",
+
+        success: function(ret) {
+            console.log(ret)
+            const nome = ret.split("|");
+            //console.log(nome)
+            var length = nome.length;
+            var html_append = "";
+
+
+            $("#par").html("");
+            html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td>Classe</td><td style=\"border: 1px solid black;\">Sesso</td></tr>";
+
+            for (var i = 0; i < length - 1; i++) {
+                const campi = nome[i].split(";")
+                html_append += "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
+            }
+            //console.log(nome);
+            html_append += "</table>";
+            $("#Tablefilms").append(html_append);
+
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film) {
     var data = {};
@@ -112,6 +142,7 @@ function ajax_call_php_login_admin(admin_id, admin_passw) {
             if (ret == "ok") {
                 $("#loginform").hide();
                 $("#addfilm").show();
+                $("#Tablefilms").show();
             } else {
                 alert("Wrong data")
             }
@@ -164,7 +195,7 @@ function ajax_call_films() {
 
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(";")
-                card += "<div class='card mb-3' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[0] + "</h5><h7> Categoria : " + campi[1] + "</h7><br><br><p class='card-text'>" + campi[6] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[3] + "</button><button>" + campi[4] + "</button><button>" + campi[5] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div><br>";
+                card += "<div class='card mb-3' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[1] + "</h5><h7> Categoria : " + campi[2] + "</h7><br><br><p class='card-text'>" + campi[3] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[4] + "</button><button>" + campi[5] + "</button><button>" + campi[6] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div><br>";
             }
             //console.log(nome);
             html_append += "</table>";
