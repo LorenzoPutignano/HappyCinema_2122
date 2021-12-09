@@ -11,7 +11,7 @@ try {
     if($result->rowCount() == 1) {
         foreach($result as $row) {
             if($row["password"] == $pass) {
-                echo "[INFO] utente già memorizzato!";
+                echo "[INFO] utente gia memorizzato!";
             }
         }    
     } else {
