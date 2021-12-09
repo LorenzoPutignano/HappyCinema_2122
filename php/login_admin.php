@@ -4,7 +4,7 @@ $id = $_POST['id'];
 $pass = $_POST['passwd'];
 
 try {
-    $sql_query = "select id,password from utente where email='".$id."' and password='".$pass."'";
+    $sql_query = "select id,password from admin_user where id='".$id."' and password='".$pass."'";
     $result = $conn->query($sql_query);
     if($result->rowCount() > 0) {
         $row = $result->fetch();

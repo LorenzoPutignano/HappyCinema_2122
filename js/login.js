@@ -100,6 +100,8 @@ function ajax_call_php_login_admin(admin_id, admin_passw) {
     data.id = admin_id;
     data.passwd = admin_passw;
 
+    console.log(data);
+
     $.ajax({
         type: "POST",
         url: "../php/login_admin.php",
