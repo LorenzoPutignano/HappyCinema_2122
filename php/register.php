@@ -11,12 +11,12 @@ try {
     if($result->rowCount() == 1) {
         foreach($result as $row) {
             if($row["password"] == $pass) {
-                echo "[INFO] utente già memorizzato!";
+                echo "ok";
             }
         }    
     } else {
     $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass."')";
-    $result = $conn -> query($sql_query_insert);
+    $result = $conn -> query($sql_query);
     echo "[INFO] utente memorizzato con successo!";
     }
 } catch (PDOException $exc) {

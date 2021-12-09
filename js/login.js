@@ -113,7 +113,7 @@ function ajax_call_php_login(client_email, client_passw) {
 function ajax_call_films() {
     $.ajax({
         type: "POST",
-        url: "./php/films.php",
+        url: "../php/films.php",
 
         success: function(ret) {
             console.log(ret)
