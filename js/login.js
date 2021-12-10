@@ -36,6 +36,7 @@ $(document).ready(function() {
         ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
         ajax_call_films_show_table();
     });
+    
 
 });
 
