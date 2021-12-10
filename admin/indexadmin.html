@@ -54,11 +54,13 @@
     </div>
     <p id="Tablefilms" style="display: none;"></p>
     <div id="addfilm" style="display: none;">
+
         <div class="container">
             <a href="../index.html">
                 <img src="../img/Logo-Happy-Network.png" width="180px"> </a>
         </div>
-        <form class="row g-4">
+        <form class="row g-4" enctype="multipart/form-data" method="POST" action="upload.php">
+            IMG TO SAVE: <input type="file" id="img_film" name="user_img"><br>
             <div class="col-md-6">
                 <label for="titolo" class="form-label">Titolo</label>
                 <input type="text" class="form-control" id="titolo">
@@ -92,7 +94,7 @@
                 <input type="time" class="form-control" id="durata_film">
             </div>
             <div class="col-cn-1">
-                <button type="button" id="bt_film" class="btn btn-primary">ADD FILM</button>
+                <button type="submit" id="bt_film" class="btn btn-primary">ADD FILM</button>
             </div>
         </form>
 

@@ -24,7 +24,9 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
-        console.log("film");
+        var img_film_start = $("#img_film").val();
+        var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
+        var img_film_final = img_film_ok.replace('Cfakepath', '');
         var titolo = $("#titolo").val();
         var genere = $("#genere").val();
         var data_uscita = $("#data_uscita").val();
@@ -33,10 +35,10 @@ $(document).ready(function() {
         var orario2 = $("#orario2").val();
         var descrizione = $("#descrizione").val();
         var durata_film = $("#durata_film").val();
-        ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
+        ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final);
         ajax_call_films_show_table();
     });
-    
+
 
 });
 
@@ -71,7 +73,7 @@ function ajax_call_films_show_table() {
     });
 }
 
-function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film) {
+function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final) {
     var data = {};
     data.titolo = titolo;
     data.genere = genere;
@@ -81,14 +83,14 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
     data.orario2 = orario2;
     data.descrizione = descrizione;
     data.durata_film = durata_film;
-    console.log(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film);
+    data.img_film = img_film_final;
+    console.log(data.img_film);
 
     $.ajax({
         type: "POST",
         url: "../php/insertfilm.php",
         data: data,
         success: function(ret) {
-            console.log(ret);
             if (ret == "ok") {
                 alert("Film memorizzato con successo!");
             } else {
@@ -171,37 +173,6 @@ function ajax_call_php_login(client_email, client_passw) {
             } else {
                 alert("Wrong data")
             }
-        },
-        error: function(ret) {
-
-        }
-    });
-}
-
-function ajax_call_films() {
-    $.ajax({
-        type: "POST",
-        url: "./php/films.php",
-
-        success: function(ret) {
-            console.log(ret)
-            const nome = ret.split("|");
-            //console.log(nome)
-            var length = nome.length;
-            var html_append = "";
-            var card = "";
-
-
-            $("#par").html("");
-
-            for (var i = 0; i < length - 1; i++) {
-                const campi = nome[i].split(";")
-                card += "<div class='card mb-3' id='card' style='max-width: 590px;' style='background-color: rgba(0, 0, 0, 0.2);'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[1] + "</h5><h7> Categoria : " + campi[2] + "</h7><br><br><p class='card-text'>" + campi[3] + "</p><p class='card-text' style='background-color:#94d60a'><small class='text-muted'><button>" + campi[4] + "</button><button>" + campi[5] + "</button><button>" + campi[6] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div><br>";
-            }
-            //console.log(nome);
-            html_append += "</table>";
-            $("#par").append(card);
-
         },
         error: function(ret) {
 

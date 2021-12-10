@@ -8,10 +8,12 @@ $orario2 = $_POST['orario1'];
 $orario3 = $_POST['orario2'];
 $descrizione = $_POST['descrizione'];
 $duratafilm = $_POST['durata_film'];
+$img_film_name = $_POST['img_film'];
+
 
 
 try {
-    $sql_query = "INSERT INTO films (titolo,genere,data_uscita,orario_0,orario_1,orario_2,descrizione,durata_film) values ('".$titolo."','".$genere."','".$data_uscita."','".$orario1."','".$orario2."','".$orario3."','".$descrizione."','".$duratafilm."')";
+    $sql_query = "INSERT INTO films (titolo,genere,data_uscita,orario_0,orario_1,orario_2,descrizione,durata_film,img_film) values ('".$titolo."','".$genere."','".$data_uscita."','".$orario1."','".$orario2."','".$orario3."','".$descrizione."','".$duratafilm."','".$img_film_name."')";
     $result = $conn -> query($sql_query);
     echo "ok";
 } catch (PDOException $exc) {
