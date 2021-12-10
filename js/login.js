@@ -196,7 +196,7 @@ function ajax_call_films() {
 
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(";")
-                card += "<div class='card mb-3' id='card' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 class='card-title'>" + campi[1] + "</h5><h7> Categoria : " + campi[2] + "</h7><br><br><p class='card-text'>" + campi[3] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[4] + "</button><button>" + campi[5] + "</button><button>" + campi[6] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div><br>";
+                card += "<div class='card mb-3' id='card' style='max-width: 540px;'><div class='row g-0'><div class='col-md-4'><img src='...' class='img-fluid rounded-start' alt='...'></div><div class='col-md-8'><div class='card-body'><h5 id='t' class='card-title'>" + campi[1] + "</h5><h7> Categoria : " + campi[2] + "</h7><br><br><p class='card-text'>" + campi[3] + "</p><p class='card-text'><small class='text-muted'><button>" + campi[4] + "</button><button>" + campi[5] + "</button><button>" + campi[6] + "</button><br><br>Durata film : " + campi[7] + " min </small><br><br><button>Acquista</button></p></div></div></div></div><br>";
             }
             //console.log(nome);
             html_append += "</table>";
