@@ -47,38 +47,45 @@
 
 </head>
 
-<body>
-    <nav class="navbar navbar-light bg-light fixed-top">
+<body style="background-color:#393E46">
+        <nav class="navbar fixed-top navbar-light" style="background-color: #223123;">
+        <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="180px" srcset=""></a>
+            <div class="d-flex justify-content-end">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="180px" srcset=""></a>
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="./img/utente.png" width="20px" alt=""> Login
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  <li><a class="dropdown-item" href="#">Login</a></li>
+                  <li><a class="dropdown-item" href="#">Register</a></li>
+                </ul>
+              </div>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
+            <span>
+                <img src="./img/ricerca.png" width="40px" alt="">
+            </span>
           </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        </div>
+            <div class="offcanvas offcanvas-end d-flex" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
-                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="Login_page/clientlogin.html">Login Client</a></li>
-                                <li><a class="dropdown-item" href="admin/indexadmin.html">Login Administrator</a></li>
-                            </ul>
-                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
-                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="Register_page/clientRegister.html">Register Client</a></li>
-                            </ul>
+                            <div class="d-flex justify-content-center">
+                                <form class="d-flex" >
+                                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="isearch">
+                                  <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                                </form>
+                            </div> 
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-          <form class="c-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="isearch">
-            <button class="btn btn-outline-success" type="submit" id="search">Search</button>
-          </form>
+        </div> 
     </nav>
     <br>
     <br>
