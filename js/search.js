@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $("#search").click(function(event) {
         var search = document.getElementById("isearch").value;
-        alert(search);
+        var film = document.getElementById("card");
+        alert(film);
     });
 });
