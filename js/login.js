@@ -24,6 +24,7 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
+        console.log("ciao")
         var img_film_start = $("#img_film").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
@@ -91,6 +92,7 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
         url: "../php/insertfilm.php",
         data: data,
         success: function(ret) {
+            console.log(ret);
             if (ret == "ok") {
                 alert("Film memorizzato con successo!");
             } else {
