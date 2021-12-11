@@ -1,5 +1,10 @@
 body {
     background-image: url('https://www.thespacecinema.it/assets/css/images/vue_bg.png') !important;
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
     color: whitesmoke !important;
     padding: 2rem !important;
 }
@@ -107,4 +112,15 @@ nav.navbar {
 
 #card-img-top {
     height: 60% !important;
+}
+
+#loginmenu,
+#registermenu {
+    padding-left: 50px;
+}
+
+#loginbut,
+#registerbut {
+    width: 100%;
+    height: 40%;
 }
