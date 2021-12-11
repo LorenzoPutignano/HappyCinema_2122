@@ -1,0 +1,110 @@
+body {
+    background-image: url('https://www.thespacecinema.it/assets/css/images/vue_bg.png') !important;
+    color: whitesmoke !important;
+    padding: 2rem !important;
+}
+
+button {
+    background-color: #ee7600ff!important;
+}
+
+footer {
+    align-items: bottom;
+    background-color: #090A0B;
+    -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
+    box-shadow: 0px 15px 26px -3px #090A0B !important;
+    border-radius: 30px 30px 30px 30px !important;
+}
+
+
+/**************************CLASSI***************************************/
+
+nav.navbar {
+    background: #090A0B !important;
+    -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
+    box-shadow: 0px 15px 26px -3px #090A0B !important;
+    max-height: 100% !important;
+    margin-left: 20px !important;
+    margin-right: 10px !important;
+    border-radius: 0px 0px 30px 30px !important;
+}
+
+.text-dark {
+    --bs-text-opacity: 1;
+    color: whitesmoke !important;
+}
+
+.dropdown-menu {
+    background: #090A0B !important;
+    color: whitesmoke !important;
+}
+
+.dropdown-item {
+    color: whitesmoke !important;
+}
+
+.navbar-brand {
+    margin-left: 50px !important;
+}
+
+.justify-content-end {
+    margin-right: 50px !important;
+}
+
+.offcanvas.show {
+    transform: none;
+    background: #090A0B !important;
+}
+
+.offcanvas {
+    background: #090A0B !important;
+}
+
+.card {
+    background-color: #ee760000 !important;
+    -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
+    box-shadow: 0px 15px 26px -3px #090A0B !important;
+    max-width: 540px !important;
+    margin-top: 70px !important;
+    margin-bottom: 70px !important;
+    border: none !important;
+    border-radius: 30px 30px 30px 30px !important;
+    height: auto !important;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-left {
+    width: 100% !important;
+    height: 60% !important;
+    display: flex !important;
+    flex: 1 1 auto !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #ee7600 !important;
+}
+
+.card-body {
+    text-align: center !important;
+}
+
+
+/**************************ID***************************************/
+
+#content {
+    margin-top: 5rem !important;
+}
+
+#btnGroupDrop1 {
+    height: 50px !important;
+}
+
+#imguser {
+    width: 30px !important;
+}
+
+#card-img-top {
+    height: 60% !important;
+}
