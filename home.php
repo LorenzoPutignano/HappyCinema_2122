@@ -5,7 +5,6 @@
     <body>
         <h1>
             <?php
-
              if($_COOKIE['id'] > 0){  
                  echo "
                  <!DOCTYPE html>
@@ -104,8 +103,9 @@
                     </body>
 
                     </html>";
+
                 }else{
-                    //header('location: ./index.html');
+                    header('location: ./index.html');
                     echo "nada cookie"; 
                 }
             ?> 
