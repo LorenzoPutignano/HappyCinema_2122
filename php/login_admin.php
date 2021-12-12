@@ -11,7 +11,6 @@ try {
     if($result->rowCount() > 0) {
         $row = $result->fetch();
         echo "ok";
-        setcookie("Id",$id);
     }
     else {
         echo "err";
