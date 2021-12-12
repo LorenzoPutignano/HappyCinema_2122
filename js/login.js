@@ -6,7 +6,6 @@ $(document).ready(function() {
         var client_surname_r = $("#client_surname_register").val();
         var client_email_r = $("#client_email_register").val();
         var client_passw_r = $("#client_pass_register").val();
-        console.log(client_passw_r);
         ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r);
     });
     $("#loginbut").click(function(event) {
@@ -25,7 +24,6 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
-        console.log("ciao")
         var img_film_start = $("#img_film").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
@@ -50,12 +48,10 @@ function ajax_call_films_show_table() {
         url: "./php/films.php",
 
         success: function(ret) {
-            console.log(ret)
+            //console.log(ret)
             const nome = ret.split("|");
-            //console.log(nome)
             var length = nome.length;
             var html_append = "";
-
 
             $("#par").html("");
             html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td>Classe</td><td style=\"border: 1px solid black;\">Sesso</td></tr>";
@@ -90,10 +86,10 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
 
     $.ajax({
         type: "POST",
-        url: "../php/insertfilm.php",
+        url: "./php/insertfilm.php",
         data: data,
         success: function(ret) {
-            console.log(ret);
+            //console.log(ret);
             if (ret == "ok") {
                 alert("Film memorizzato con successo!");
             } else {
@@ -108,17 +104,17 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
 
 function ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r) {
     var data = {};
-    data.name = client_name_r;
-    data.surname = client_surname_r;
-    data.email = client_email_r;
-    data.passwd = client_passw_r;
-    //console.log(client_email, client_name, client_passw, client_surname);
-
+    data.name_r = client_name_r;
+    data.surname_r = client_surname_r;
+    data.email_r = client_email_r;
+    data.passwd_r = client_passw_r;
+    console.log(data);
     $.ajax({
         type: "POST",
         url: "./php/register.php",
         data: data,
         success: function(ret) {
+            console.log(ret);
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
             } else if (ret == "Err") {
@@ -136,7 +132,7 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
     data.id = id_admin;
     data.passwd = admin_passw;
 
-    console.log(data);
+    //console.log(data);
 
     $.ajax({
         type: "POST",
@@ -145,10 +141,7 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
         success: function(ret) {
             console.log(ret);
             if (ret == "ok") {
-                console.log("log adm ok!");
-                //$("#loginform").hide();
-                //$("#addfilm").show();
-                //$("#Tablefilms").show();
+                alert("log adm ok!");
             } else {
                 alert("Wrong data");
             }

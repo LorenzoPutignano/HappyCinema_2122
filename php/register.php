@@ -1,25 +1,19 @@
 <?php
 require 'conn_DB.php';
-$nome = $_POST['name'];
-$cognome = $_POST['surname'];
-$email = $_POST['email'];
-echo $email;
-$pass = $_POST['passwd'];
-$pass_cript = hash('sha256',$pass);
+$bool = FALSE;
+$nome_r = $_POST['name_r'];
+$cognome_r = $_POST['surname_r'];
+$email_r = $_POST['email_r'];
+$pass_r = $_POST['passwd_r'];
+$pass_cript_r = hash('sha256',$pass);
 
 try {
-    $sql_query = "select email from utente;";
-    $result = $conn->query($sql_query);
+    $query = "INSERT INTO utente (nome, cognome,email,password) SELECT * FROM (SELECT'".$nome_r."','".$cognome_r."','".$email_r."','".$pass_cript_r."')"."AS tmp WHERE NOT EXISTS (SELECT email, password FROM utente where email='".$email_r."'"."and password='".$pass_cript_r."') LIMIT 1;";
+    $result = $conn->query($query);
     if($result->rowCount() == 1) {
-        foreach($result as $row) {
-            if($row["email"] == $email) {
-                echo "Err";
-            } else {
-                $sql_query = "INSERT INTO utente (nome,cognome,email,password) values ('".$nome."','".$cognome."','".$email."','".$pass_cript."')";
-                $result = $conn -> query($sql_query);
-                echo "ok";
-            }
-        }    
+        echo "[INFO] utente inserito!";
+    } else {
+        echo "[ERROR] user/password già presenti sul DB! Prova a registrarti usando user/password diverse!";
     }
 } catch (PDOException $exc) {
     echo "error msg: " . $exc->getMessage();
