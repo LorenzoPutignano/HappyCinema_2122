@@ -18,7 +18,7 @@ $(document).ready(function() {
     $("#admin_login_bt").click(function(event) {
         //prendere valori da HTML
         console.log("cliccato login");
-        var admin_id = $("#id_admin").val();
+        var id_admin = $("#id_admin").val();
         var admin_passw = $("#admin_pass").val();
         ajax_call_php_login_admin(id_admin, admin_passw);
     });
@@ -115,7 +115,7 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
 
     $.ajax({
         type: "POST",
-        url: "../php/register.php",
+        url: "./php/register.php",
         data: data,
         success: function(ret) {
             console.log(ret);
@@ -140,16 +140,17 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
 
     $.ajax({
         type: "POST",
-        url: "/php/login_admin.php",
+        url: "./php/login_admin.php",
         data: data,
         success: function(ret) {
             console.log(ret);
             if (ret == "ok") {
-                $("#loginform").hide();
-                $("#addfilm").show();
-                $("#Tablefilms").show();
+                console.log("log adm ok!");
+                //$("#loginform").hide();
+                //$("#addfilm").show();
+                //$("#Tablefilms").show();
             } else {
-                alert("Wrong data")
+                alert("Wrong data");
             }
         },
         error: function(ret) {

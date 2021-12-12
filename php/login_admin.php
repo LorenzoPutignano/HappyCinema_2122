@@ -1,7 +1,7 @@
 <?php
 require 'conn_DB.php';
-$id = $_POST['id_admin'];
-$pass = $_POST['admin_passwd'];
+$id = $_POST['id'];
+$pass = $_POST['passwd'];
 $pass_cript = hash('sha256',$pass);
 
 
