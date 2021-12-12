@@ -167,7 +167,7 @@ function ajax_call_php_login(client_email, client_passw) {
 
     $.ajax({
         type: "POST",
-        url: "../php/login.php",
+        url: "./php/login.php",
         data: data,
         success: function(ret) {
             //console.log("Ok Logged")
