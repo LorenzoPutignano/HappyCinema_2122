@@ -111,7 +111,8 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
     data.surname = client_surname;
     data.email = client_email;
     data.passwd = client_passw;
-    console.log(client_email, client_name, client_passw, client_surname);
+    //console.log(client_email, client_name, client_passw, client_surname);
+    console.log(data);
 
     $.ajax({
         type: "POST",
