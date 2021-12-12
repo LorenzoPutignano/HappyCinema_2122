@@ -10,7 +10,8 @@ try {
     $result = $conn->query($sql_query);
     if($result->rowCount() > 0) {
         $row = $result->fetch();
-        echo "ok"; 
+        echo "ok";
+        setcookie("Id",$id);
     }
     else {
         echo "err";

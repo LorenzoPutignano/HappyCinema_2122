@@ -142,6 +142,7 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
             console.log(ret);
             if (ret == "ok") {
                 alert("log adm ok!");
+                window.location.replace("./admin/indexadmin.html");
             } else {
                 alert("Wrong data");
             }
