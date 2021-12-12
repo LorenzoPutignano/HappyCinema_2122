@@ -15,12 +15,12 @@ $(document).ready(function() {
         var client_passw = $("#client_pass").val();
         ajax_call_php_login(client_email, client_passw);
     });
-    $("#LoginAdmin").click(function(event) {
+    $("#admin_login_bt").click(function(event) {
         //prendere valori da HTML
         console.log("cliccato login");
-        var admin_id = $("#admin_id").val();
+        var admin_id = $("#id_admin").val();
         var admin_passw = $("#admin_pass").val();
-        ajax_call_php_login_admin(admin_id, admin_passw);
+        ajax_call_php_login_admin(id_admin, admin_passw);
     });
 
     $("#bt_film").click(function(event) {
@@ -131,16 +131,16 @@ function ajax_call_php_register(client_name, client_surname, client_email, clien
     });
 }
 
-function ajax_call_php_login_admin(admin_id, admin_passw) {
+function ajax_call_php_login_admin(id_admin, admin_passw) {
     var data = {};
-    data.id = admin_id;
+    data.id = id_admin;
     data.passwd = admin_passw;
 
     console.log(data);
 
     $.ajax({
         type: "POST",
-        url: "../php/login_admin.php",
+        url: "/php/login_admin.php",
         data: data,
         success: function(ret) {
             console.log(ret);

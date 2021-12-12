@@ -1,12 +1,12 @@
 <?php
 require 'conn_DB.php';
-$id = $_POST['id'];
-$pass = $_POST['passwd'];
+$id = $_POST['id_admin'];
+$pass = $_POST['admin_passwd'];
 $pass_cript = hash('sha256',$pass);
 
 
 try {
-    $sql_query = "select id,password from admin_user where id='".$id."' and password='".$pass_cript."'";
+    $sql_query = "select id, password from admin_user where id='".$id."' and password='".$pass_cript."'";
     $result = $conn->query($sql_query);
     if($result->rowCount() > 0) {
         $row = $result->fetch();
