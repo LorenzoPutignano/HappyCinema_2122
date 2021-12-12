@@ -3,6 +3,7 @@ require 'conn_DB.php';
 $nome = $_POST['name'];
 $cognome = $_POST['surname'];
 $email = $_POST['email'];
+echo $email;
 $pass = $_POST['passwd'];
 $pass_cript = hash('sha256',$pass);
 
