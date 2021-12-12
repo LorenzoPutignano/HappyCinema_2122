@@ -21,6 +21,11 @@ footer {
     border-radius: 30px 30px 30px 30px !important;
 }
 
+table {
+    background-color: #6d6c6b !important;
+    text-decoration-color: aqua;
+}
+
 
 /**************************CLASSI***************************************/
 

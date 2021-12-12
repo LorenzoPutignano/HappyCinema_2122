@@ -5,7 +5,7 @@
     <body>
         <h1>
             <?php
-             if($_COOKIE['id'] > 0){  
+             if($_COOKIE['id'] != ""){  
                  echo "
                  <!DOCTYPE html>
                     <html lang='en'>
@@ -48,19 +48,17 @@
                             });
                         </script>
                         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
+                        <link rel='stylesheet' href='./css/mystyle.css'>
                     </head>
 
-                    <body>
-                        <h2>Welcome user ".$_COOKIE['id']."</h2>
-                        <p id='Tablefilms' style='display: none;'></p>
-                        <div id='addfilm'>
-
-                            <div class='container'>
-                                <a href='../index.html'>
-                                    <img src='../img/Logo-Happy-Network.png' width='180px'> </a>
-                            </div>
-                            <form class='row g-4' enctype='multipart/form-data' method='POST' action=''>
-                                IMG TO SAVE: <input type='file' id='img_film' name='user_img'><br>
+                    <body style=text-align:center>
+                        <h2>Welcome user ".$_COOKIE['id']."</h2> 
+                        <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
+                        <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
+                        <br>
+                        <div id='addfilm' style='display: none;'>
+                            <form enctype='multipart/form-data' method='POST' action='upload.php'>
+                                    IMG TO SAVE: <input type='file' name='user_img'><br>
                                 <div class='col-md-6'>
                                     <label for='titolo' class='form-label'>Titolo</label>
                                     <input type='text' class='form-control' id='titolo'>
@@ -97,13 +95,32 @@
                                     <button type='button' id='bt_film' class='btn btn-primary'>ADD FILM</button>
                                 </div>
                             </form>
-
-                            <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                         </div>
+
+                        <div id='removefilm' style='display: none;'>
+                            <div id='Tablefilms' style='display: none;'></div>
+                            <div class='col-md-6'>
+                                <label for='id' class='form-label'>ID</label>
+                                <input type='number' class='form-control' id='id_film_remove'>
+                            </div>
+                            <div class='col-cn-1'>
+                                <button type='button' id='bt_film' class='btn btn-primary'>REMOVE FILM</button>
+                            </div>
+                    </div>
+                        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                     </body>
 
                     </html>";
-
+                    ?>
+                    <!-- <script>
+                            setInterval(function() {
+                                alert("Elimino cookie")
+                                <?php
+                                    //unset($_COOKIE['id']);
+                                ?>
+                            }, 20000);
+                    </script> -->
+                    <?php
                 }else{
                     header('location: ./index.html');
                     echo "nada cookie"; 

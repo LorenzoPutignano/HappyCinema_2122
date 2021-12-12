@@ -39,6 +39,17 @@ $(document).ready(function() {
         ajax_call_films_show_table();
     });
 
+    $("#bt_show_add_film").click(function(event) {
+        $("#addfilm").css("display", "block");
+        $("#removefilm").css("display", "none");
+        $("#Tablefilms").css("display", "none");
+    });
+    $("#bt_show_remove_film").click(function(event) {
+        $("#addfilm").css("display", "none");
+        $("#removefilm").css("display", "block");
+        $("#Tablefilms").css("display", "block");
+
+    });
 
 });
 
@@ -92,8 +103,10 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
             //console.log(ret);
             if (ret == "ok") {
                 alert("Film memorizzato con successo!");
+                window.open("./home.php", "_self");
             } else {
                 alert("Film gia memorizzato");
+                window.open("./home.php", "_self");
             }
         },
         error: function(ret) {
