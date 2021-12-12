@@ -141,11 +141,11 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
         success: function(ret) {
             console.log(ret);
             if (ret == "ok") {
-                alert("log adm ok!");
+                //alert("log adm ok!");
                 $.post("./save_to_cookie.php", data);
                 window.open("./home.php", "_self");
             } else {
-                alert("Wrong data");
+                $("#paragrafoerror").html("<h3 style='text-align:center;color: #ee0000 !important;'>Wrong Acces!</h3>");
             }
         },
         error: function(ret) {
