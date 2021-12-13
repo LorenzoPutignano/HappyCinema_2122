@@ -96,14 +96,14 @@ function ajax_call_remove_film(id_film) {
     var data = {};
     data.id = id_film;
 
-    console.log(data);
+    //console.log(data);
 
     $.ajax({
         type: "POST",
         url: "./php/film_elimina.php",
         data: data,
         success: function(ret) {
-            console.log(ret);
+            //console.log(ret);
             if (ret == "ok") {
                 console.log("film eliminato correttamente!");
                 $("#Tablefilms").html = "";
@@ -123,7 +123,7 @@ function ajax_call_remove_film(id_film) {
 function ajax_search_film(search) {
     var data = {};
     data.titolo = search;
-    console.log(data);
+    //console.log(data);
 
     $.ajax({
         type: "POST",
@@ -231,7 +231,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
             console.log(ret);
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
-                window.open("./index.html", "_self");
+                window.open("./index.php", "_self");
             } else if (ret == "err") {
                 alert("L'utente esiste, email sbagliata");
             }
