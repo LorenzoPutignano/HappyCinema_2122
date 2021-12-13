@@ -21,6 +21,14 @@ $(document).ready(function() {
 
 function button(id) {
         var bottone = document.getElementById(id);
-        bottone.disabled = true;
+        while (n_posti > 0) {
+            bottone.disabled = true;
+            
+            if (n_posti == 1) {
+                bottone.type = "submit";
+            }
+            n_posti--;
+        }
+        }
         //bottone.type = "submit";
 }
