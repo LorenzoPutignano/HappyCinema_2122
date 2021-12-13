@@ -89,7 +89,7 @@
                                 </div>
                                 <div class='col-md-12'>
                                     <label for='durata_film' class='form-label'>Durata</label>
-                                    <input type='time' class='form-control' id='durata_film'>
+                                    <input type='text' class='form-control' id='durata_film'>
                                 </div>
                                 <input type='submit' id='bt_film' class='btn btn-primary'>ADD IMG</input>
                             </form>
