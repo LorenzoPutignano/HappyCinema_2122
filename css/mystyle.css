@@ -7,6 +7,7 @@ body {
     background-size: cover;
     color: whitesmoke !important;
     padding: 2rem !important;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
@@ -19,6 +20,12 @@ footer {
     -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
     box-shadow: 0px 15px 26px -3px #090A0B !important;
     border-radius: 30px 30px 30px 30px !important;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
 }
 
 table {
