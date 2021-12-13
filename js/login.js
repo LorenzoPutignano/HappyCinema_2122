@@ -77,7 +77,9 @@ function ajax_call_remove_film(id_film) {
             console.log(ret);
             if (ret == "ok") {
                 console.log("film eliminato correttamente!");
+                $("#Tablefilms").innerHTML = "";
                 ajax_call_films_show_table();
+                console.log("si arrvat do");
             } else {
                 console.log("film non esistente!");
             }
