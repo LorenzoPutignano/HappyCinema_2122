@@ -1,10 +1,18 @@
 $(document).ready(function() {
     $("#search").click(function(event) {
+<<<<<<< HEAD
+        var search = document.getElementById("isearch").value;
+        var film = document.getElementsByClassName("card-body");
+        var f = document.getElementsByClassName("card-title");
+        alert(f);
+        //ciao
+=======
         var search = $("#isearch").val();
         //var search = document.getElementById("isearch").value;
         //var film = document.getElementsByClassName("card-body");
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
+>>>>>>> 892dee548868525588100c23c4a0689e64f43306
     });
 });
 
