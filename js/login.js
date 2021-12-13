@@ -107,11 +107,12 @@ function ajax_search_film(search) {
         }
     });
 }
-function Show_card() {
+
+function show_card() {
     $.ajax({
         type: "POST",
         url: "./php/films.php",
-    
+
         success: function(ret) {
             //console.log(ret)
             const nome = ret.split("|");
@@ -119,24 +120,25 @@ function Show_card() {
             var length = nome.length;
             var html_append = "";
             var card = "";
-    
-    
+
+
             $("#card").html("");
-    
+
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(";")
                 card += "<div class='card'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h5 class='card-text'>" + campi[7] + "</h5></div><div class='card-footer'><small class='text-muted'>Last updated 3 mins ago</small></div></div>";
-    
+
             }
             //console.log(nome);
             html_append += "</table>";
             $("#card").append(card);
-    
+
         },
         error: function(ret) {
-    
+
         }
     });
+    
 }
 
 
