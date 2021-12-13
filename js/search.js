@@ -4,5 +4,6 @@ $(document).ready(function() {
         var film = document.getElementsByClassName("card-body");
         var f = document.getElementsByClassName("card-title");
         alert(f);
+        //ciao
     });
 });
