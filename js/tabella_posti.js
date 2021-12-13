@@ -9,7 +9,7 @@ $(document).ready(function() {
     for (j = 0; j < 7; j++) {
         append += "<tr>";
         for (i=0 ; i < 7; i++) {
-            append += "<th> <input type='checkbox' id = " + id + " onclick='button(id) '> <img src='../img/poltrona.png' height='40' > </button> </th>";
+            append += "<th> <button type = 'button' id = " + id + " onclick='button(id) '> <img src='../img/poltrona.png' height='40' > </button> </th>";
             id++;
         }
         append += "</tr>"  
@@ -20,15 +20,23 @@ $(document).ready(function() {
 });
 
 function button(id) {
-        var bottone = document.getElementById(id);
-        while (n_posti > 0) {
+    var i = new Array;
+    var count = 0;
+    var bottone = document.getElementById(id);
+    if (bottone.click) {
+        i[count] = id;
+        count++;
+    }
+    alert(i);   
+        /*if (bottone.click) {
             bottone.disabled = true;
-            
-            if (n_posti == 1) {
-                bottone.type = "submit";
-            }
             n_posti--;
-        }
-        }
-        //bottone.type = "submit";
+            if (n_posti == 0) {
+                confirm = ("Prenotare i seguenti posti? " + i[n_posti]);
+            }
+        }*/
 }
+        //bottone.type = "submit";
+        //bottone.disabled = true;
+        //bottone.type = "submit";
+
