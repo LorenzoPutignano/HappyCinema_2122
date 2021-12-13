@@ -57,7 +57,67 @@ $(document).ready(function() {
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
     });
+    $("#bt_film_remove").click(function(event) {
+        var id_film = $("#id_film_remove").val();
+        ajax_call_remove_film(id_film);
+    });
 });
+
+function showFilms() {
+    $.ajax({
+        type: 'POST',
+        url: './php/films.php',
+
+        success: function(ret) {
+            console.log(ret)
+            const nome = ret.split('|');
+            //console.log(nome)
+            var length = nome.length;
+            var html_append = '';
+
+            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
+
+            for (var i = 0; i < length - 1; i++) {
+                const campi = nome[i].split(';')
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
+            }
+            //console.log(nome);
+            html_append += '</table>';
+            $('#Tablefilms').html(html_append);
+
+        },
+        error: function(ret) {
+
+        }
+    });
+}
+
+function ajax_call_remove_film(id_film) {
+    var data = {};
+    data.id = id_film;
+
+    console.log(data);
+
+    $.ajax({
+        type: "POST",
+        url: "./php/film_elimina.php",
+        data: data,
+        success: function(ret) {
+            console.log(ret);
+            if (ret == "ok") {
+                console.log("film eliminato correttamente!");
+                $("#Tablefilms").html = "";
+                showFilms();
+                console.log("si arrvat do");
+            } else {
+                console.log("film non esistente!");
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 
 function ajax_search_film(search) {
