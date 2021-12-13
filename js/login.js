@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
-        var img_film_start = $("#img_film").val();
+        var img_film_start = $("#imgtosave").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
         var titolo = $("#titolo").val();
@@ -37,6 +37,31 @@ $(document).ready(function() {
         var durata_film = $("#durata_film").val();
         ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final);
         ajax_call_films_show_table();
+    });
+
+    $('input[type=file]').change(function() {
+        var filePath = $('#imgtosave').val();
+        var data = {};
+        data.user_img = filePath;
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "./upload.php",
+            data: data,
+            success: function(ret) {
+                //console.log(ret);
+                if (ret == "ok") {
+                    alert("IMG SALVATA");
+                    //window.open("./home.php", "_self");
+                } else {
+                    alert("IMG NON SALVATA");
+                    //window.open("./home.php", "_self");
+                }
+            },
+            error: function(ret) {
+
+            }
+        });
     });
 
     $("#bt_show_add_film").click(function(event) {
@@ -52,6 +77,7 @@ $(document).ready(function() {
     });
 
 });
+
 
 function ajax_call_films_show_table() {
     $.ajax({
@@ -102,11 +128,11 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
-                alert("Film memorizzato con successo!");
-                window.open("./home.php", "_self");
+                //alert("Film memorizzato con successo!");
+                //window.open("./home.php", "_self");
             } else {
-                alert("Film gia memorizzato");
-                window.open("./home.php", "_self");
+                //alert("Film gia memorizzato");
+                //window.open("./home.php", "_self");
             }
         },
         error: function(ret) {
