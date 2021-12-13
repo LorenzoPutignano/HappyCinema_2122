@@ -29,8 +29,6 @@
                                     var length = nome.length;
                                     var html_append = '';
 
-
-                                    $('#par').html('');
                                     html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
 
                                     for (var i = 0; i < length - 1; i++) {
@@ -39,7 +37,7 @@
                                     }
                                     //console.log(nome);
                                     html_append += '</table>';
-                                    $('#Tablefilms').append(html_append);
+                                    $('#Tablefilms').html(html_append);
 
                                 },
                                 error: function(ret) {
@@ -97,11 +95,9 @@
 
                         <div id='removefilm' style='display: none;'>
                             <div id='Tablefilms' style='display: none;'></div>
-                            <div class='col-md-6'>
+                            <div class='col-cn-1'>
                                 <label for='id' class='form-label'>ID</label>
                                 <input type='number' class='form-control' id='id_film_remove'>
-                            </div>
-                            <div class='col-cn-1'>
                                 <button type='button' id='bt_film' class='btn btn-primary'>REMOVE FILM</button>
                             </div>
                     </div>

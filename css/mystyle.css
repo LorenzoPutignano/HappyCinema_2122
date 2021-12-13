@@ -28,8 +28,9 @@ footer {
 }
 
 table {
-    background-color: #6d6c6b !important;
-    text-decoration-color: aqua;
+    background-color: #6d6c6b07 !important;
+    color: #94d60a !important;
+    width: auto !important;
 }
 
 

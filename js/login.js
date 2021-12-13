@@ -50,13 +50,6 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "block");
 
     });
-    $("#search").click(function(event) {
-        var search = $("#isearch").val();
-        //var search = document.getElementById("isearch").value;
-        //var film = document.getElementsByClassName("card-body");
-        //var f = document.getElementsByClassName("card-title");
-        ajax_search_film(search);
-    });
 });
 
 
