@@ -29,6 +29,8 @@
                                     var length = nome.length;
                                     var html_append = '';
 
+
+                                    $('#par').html('');
                                     html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
 
                                     for (var i = 0; i < length - 1; i++) {
@@ -37,7 +39,7 @@
                                     }
                                     //console.log(nome);
                                     html_append += '</table>';
-                                    $('#Tablefilms').html(html_append);
+                                    $('#Tablefilms').append(html_append);
 
                                 },
                                 error: function(ret) {
@@ -95,16 +97,12 @@
 
                         <div id='removefilm' style='display: none;'>
                             <div id='Tablefilms' style='display: none;'></div>
-                            <div class='col-cn-1'>
+                            <div class='col-md-6'>
                                 <label for='id' class='form-label'>ID</label>
                                 <input type='number' class='form-control' id='id_film_remove'>
-<<<<<<< HEAD
                             </div>
                             <div class='col-cn-1'>
                                 <button type='button' id='remove_bt' class='btn btn-primary'>REMOVE FILM</button>
-=======
-                                <button type='button' id='bt_film' class='btn btn-primary'>REMOVE FILM</button>
->>>>>>> 463a0d5c145e2bba7a16a5fd36742196387e8821
                             </div>
                     </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
