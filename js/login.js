@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
-        var img_film_start = $("#img_film").val();
+        var img_film_start = $("#imgtosave").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
         var titolo = $("#titolo").val();
@@ -37,6 +37,22 @@ $(document).ready(function() {
         var durata_film = $("#durata_film").val();
         ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final);
         ajax_call_films_show_table();
+    });
+
+    $(document).on("click", "#upload", function() {
+        var file_data = $("#myfile").prop("files")[0]; // Getting the properties of file from file field
+        var form_data = new FormData(); // Creating object of FormData class
+        form_data.append("file", file_data) // Appending parameter named file with properties of file_field to form_data
+        form_data.append("user_id", 123) // Adding extra parameters to form_data
+        $.ajax({
+            url: "./upload.php",
+            dataType: 'script',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data, // Setting the data attribute of ajax with file_data
+            type: 'post'
+        });
     });
 
     $("#bt_show_add_film").click(function(event) {
@@ -59,6 +75,7 @@ $(document).ready(function() {
     });
 });
 
+
 function ajax_search_film(search) {
     var data = {};
     data.titolo = search;
@@ -72,10 +89,10 @@ function ajax_search_film(search) {
             const nome = ret.split("|");
             var length = nome.length;
             var html_append = "";
-    
+
             $("#par").html("");
             html_append = "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td>Classe</td><td style=\"border: 1px solid black;\">Sesso</td></tr>";
-    
+
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(";")
                 html_append = "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
@@ -83,7 +100,7 @@ function ajax_search_film(search) {
             console.log(nome);
             html_append = "</table>";
             $("#Tablefilms").append(html_append);
-    
+
         },
         error: function(ret) {
 
@@ -172,11 +189,11 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
-                alert("Film memorizzato con successo!");
-                window.open("./home.php", "_self");
+                //alert("Film memorizzato con successo!");
+                //window.open("./home.php", "_self");
             } else {
-                alert("Film gia memorizzato");
-                window.open("./home.php", "_self");
+                //alert("Film gia memorizzato");
+                //window.open("./home.php", "_self");
             }
         },
         error: function(ret) {
@@ -201,7 +218,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
                 window.open("./index.html", "_self");
-            } else if (ret == "Err") {
+            } else if (ret == "err") {
                 alert("L'utente esiste, email sbagliata");
             }
         },
