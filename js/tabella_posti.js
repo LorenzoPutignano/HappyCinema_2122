@@ -8,7 +8,7 @@ $(document).ready(function() {
     for (j = 0; j < 7; j++) {
         append += "<tr>";
         for (i=0 ; i < 7; i++) {
-            append += "<th> <button id = b" + id + " onclick='button(id)'> <img src='poltrona.png' height='40' > </button> </th>";
+            append += "<th> <button id = b" + id + " onclick='button(id)'> <img src='../img/poltrona.png' height='40' > </button> </th>";
             id++;
         }
         append += "</tr>"  
