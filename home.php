@@ -18,32 +18,36 @@
                         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
                         <script src='./js/login.js'></script>
                         <script>
-                            $.ajax({
-                                type: 'POST',
-                                url: './php/films.php',
+                            
+                            function showFilms(){
+                                $.ajax({
+                                    type: 'POST',
+                                    url: './php/films.php',
 
-                                success: function(ret) {
-                                    console.log(ret)
-                                    const nome = ret.split('|');
-                                    //console.log(nome)
-                                    var length = nome.length;
-                                    var html_append = '';
+                                    success: function(ret) {
+                                        console.log(ret)
+                                        const nome = ret.split('|');
+                                        //console.log(nome)
+                                        var length = nome.length;
+                                        var html_append = '';
 
-                                    html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
+                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
 
-                                    for (var i = 0; i < length - 1; i++) {
-                                        const campi = nome[i].split(';')
-                                        html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
+                                        for (var i = 0; i < length - 1; i++) {
+                                            const campi = nome[i].split(';')
+                                            html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
+                                        }
+                                        //console.log(nome);
+                                        html_append += '</table>';
+                                        $('#Tablefilms').html(html_append);
+
+                                    },
+                                    error: function(ret) {
+
                                     }
-                                    //console.log(nome);
-                                    html_append += '</table>';
-                                    $('#Tablefilms').html(html_append);
-
-                                },
-                                error: function(ret) {
-
-                                }
-                            });
+                                });
+                            }
+                            showFilms();
                         </script>
                         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
                         <link rel='stylesheet' href='./css/mystyle.css'>
@@ -99,7 +103,7 @@
                             <div class='input-group mb-3'>
                                 <span class='input-group-text' id='basic-addon1'>ID</span>
                                 <input type='number' class='form-control' placeholder='INSERIRE ID FILM DA ELIMINARE' aria-label='ID_FILM' id='id_film_remove' aria-describedby='basic-addon1'>
-                                <button type='button' id='bt_film' class='btn btn-primary'>REMOVE</button>
+                                <button type='button' id='bt_film_remove' class='btn btn-primary' onload='showFilms()'>REMOVE</button>
                             </div>
                     </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
