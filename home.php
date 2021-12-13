@@ -59,6 +59,8 @@
                         <div id='addfilm' style='display: none;'>
                             <form enctype='multipart/form-data' method='POST' action='upload.php'>
                                     IMG TO SAVE: <input type='file' name='user_img'><br>
+                                    <input type='submit' value='SAVE'>
+                            </form>
                                 <div class='col-md-6'>
                                     <label for='titolo' class='form-label'>Titolo</label>
                                     <input type='text' class='form-control' id='titolo'>
