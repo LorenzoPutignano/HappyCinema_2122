@@ -57,6 +57,7 @@
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
                         <br>
                         <div id='addfilm' style='display: none;'>
+                            <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
                                 IMG TO SAVE: <input type='file' id='imgtosave' name='user_img'><br>
                                 <div class='col-md-6'>
                                     <label for='titolo' class='form-label'>Titolo</label>
@@ -91,6 +92,7 @@
                                     <input type='time' class='form-control' id='durata_film'>
                                 </div>
                                 <input type='submit' id='bt_film' class='btn btn-primary'>ADD IMG</input>
+                            </form>
                         </div>
 
                         <div id='removefilm' style='display: none;'>

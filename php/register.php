@@ -12,6 +12,7 @@ try {
     $result = $conn->query($query);
     if($result->rowCount() == 1) {
         echo "[INFO] utente inserito!";
+        header("location: ./index.html");
     } else {
         echo "[ERROR] user/password già presenti sul DB! Prova a registrarti usando user/password diverse!";
     }
