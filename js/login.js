@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
-        var img_film_start = $("#img_film").val();
+        var img_film_start = $("#imgtosave").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
         var titolo = $("#titolo").val();
@@ -39,6 +39,31 @@ $(document).ready(function() {
         ajax_call_films_show_table();
     });
 
+    $('input[type=file]').change(function() {
+        var filePath = $('#imgtosave').val();
+        var data = {};
+        data.user_img = filePath;
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "./upload.php",
+            data: data,
+            success: function(ret) {
+                //console.log(ret);
+                if (ret == "ok") {
+                    alert("IMG SALVATA");
+                    //window.open("./home.php", "_self");
+                } else {
+                    alert("IMG NON SALVATA");
+                    //window.open("./home.php", "_self");
+                }
+            },
+            error: function(ret) {
+
+            }
+        });
+    });
+
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -50,8 +75,47 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "block");
 
     });
-
+    $("#search").click(function(event) {
+        var search = $("#isearch").val();
+        //var search = document.getElementById("isearch").value;
+        //var film = document.getElementsByClassName("card-body");
+        //var f = document.getElementsByClassName("card-title");
+        ajax_search_film(search);
+    });
 });
+
+
+function ajax_search_film(search) {
+    var data = {};
+    data.titolo = search;
+    console.log(data);
+
+    $.ajax({
+        type: "POST",
+        url: "./php/search.php",
+        data: data,
+        success: function(ret) {
+            const nome = ret.split("|");
+            var length = nome.length;
+            var html_append = "";
+
+            $("#par").html("");
+            html_append = "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td>Classe</td><td style=\"border: 1px solid black;\">Sesso</td></tr>";
+
+            for (var i = 0; i < length - 1; i++) {
+                const campi = nome[i].split(";")
+                html_append = "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
+            }
+            console.log(nome);
+            html_append = "</table>";
+            $("#Tablefilms").append(html_append);
+
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 function ajax_call_films_show_table() {
     $.ajax({
@@ -102,11 +166,11 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
-                alert("Film memorizzato con successo!");
-                window.open("./home.php", "_self");
+                //alert("Film memorizzato con successo!");
+                //window.open("./home.php", "_self");
             } else {
-                alert("Film gia memorizzato");
-                window.open("./home.php", "_self");
+                //alert("Film gia memorizzato");
+                //window.open("./home.php", "_self");
             }
         },
         error: function(ret) {
@@ -130,6 +194,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
             console.log(ret);
             if (ret == "ok") {
                 alert("Utente registrato con successo!");
+                window.open("./index.html", "_self");
             } else if (ret == "Err") {
                 alert("L'utente esiste, email sbagliata");
             }
@@ -139,6 +204,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
         }
     });
 }
+//admin connection
 
 function ajax_call_php_login_admin(id_admin, admin_passw) {
     var data = {};
