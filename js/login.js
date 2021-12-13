@@ -50,7 +50,6 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "block");
 
     });
-<<<<<<< HEAD
     $("#search").click(function(event) {
         var search = $("#isearch").val();
         //var search = document.getElementById("isearch").value;
@@ -62,8 +61,6 @@ $(document).ready(function() {
         var id_film = $("#id_film_remove").val();
         ajax_call_remove_film(id_film);
     });
-=======
->>>>>>> 463a0d5c145e2bba7a16a5fd36742196387e8821
 });
 
 function ajax_call_remove_film(id_film) {
