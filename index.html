@@ -30,7 +30,7 @@
 
                 for (var i = 0; i < length - 1; i++) {
                     const campi = nome[i].split(";")
-                    card += "<div class='card'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h5 class='card-text'>" + campi[7] + "</h5></div><div class='card-footer'><small class='text-muted'>Last updated 3 mins ago</small></div></div>";
+                    card += "<div class='card' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h5 class='card-text'>" + campi[7] + "</h5></div><div class='card-footer'><small class='text-muted'>Last updated 3 mins ago</small></div></div>";
 
                 }
                 //console.log(nome);
@@ -103,8 +103,8 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="isearch">
-                                <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                                <input class="filter" type="search" placeholder="Search" aria-label="Search" id="isearch">
+                                <!--<button class="btn btn-outline-success" type="submit" id="search">Search</button>-->
                             </form>
                         </div>
                     </li>
@@ -181,7 +181,41 @@
     </footer>
 
 
+    <script type="text/javascript">
+        $(".filter").on("keyup", function() {
+            var input = $(this).val().toUpperCase();
+            var visibleCards = 0;
+            var hiddenCards = 0;
 
+            $(".container").append($("<div class='card-group card-group-filter'></div>"));
+
+
+            $(".card").each(function() {
+                if ($(this).data("string").toUpperCase().indexOf(input) < 0) {
+
+                    $(".card-group.card-group-filter:first-of-type").append($(this));
+                    $(this).hide();
+                    hiddenCards++;
+
+                } else {
+
+                    $(".card-group.card-group-filter:last-of-type").prepend($(this));
+                    $(this).show();
+                    visibleCards++;
+
+                    if (((visibleCards % 4) == 0)) {
+                        $(".container").append($("<div class='card-group card-group-filter'></div>"));
+                    }
+                }
+            });
+
+            $(".card-group").each(function() {
+                if ($(this).find("div").length == 0) {
+                    $(this).remove();
+                }
+            })
+        });
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
