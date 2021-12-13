@@ -102,7 +102,7 @@
                                 <input type='number' class='form-control' id='id_film_remove'>
                             </div>
                             <div class='col-cn-1'>
-                                <button type='button' id='bt_film' class='btn btn-primary'>REMOVE FILM</button>
+                                <button type='button' id='remove_bt' class='btn btn-primary'>REMOVE FILM</button>
                             </div>
                     </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>

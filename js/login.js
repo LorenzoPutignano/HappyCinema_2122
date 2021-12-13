@@ -57,7 +57,36 @@ $(document).ready(function() {
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
     });
+    $("#remove_bt").click(function(event) {
+        var id_film = $("#id_film_remove").val();
+        ajax_call_remove_film(id_film);
+    });
 });
+
+function ajax_call_remove_film(id_film) {
+    var data = {};
+    data.id = id_film;
+
+    console.log(data);
+
+    $.ajax({
+        type: "POST",
+        url: "./php/film_elimina.php",
+        data: data,
+        success: function(ret) {
+            console.log(ret);
+            if (ret == "ok") {
+                console.log("film eliminato correttamente!");
+                ajax_call_films_show_table();
+            } else {
+                console.log("film non esistente!");
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 
 function ajax_search_film(search) {
