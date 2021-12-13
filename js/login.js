@@ -93,6 +93,7 @@ function ajax_search_film(search) {
 }
 
 
+
 function ajax_call_films_show_table() {
     $.ajax({
         type: "POST",
