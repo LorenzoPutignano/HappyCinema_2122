@@ -53,6 +53,20 @@
                   <img src="./img/utente.png" id="imguser" alt=""> Log In
                 </button>
                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <?php
+                        if($_COOKIE) {
+                            ?>
+                            <button>logout</btton>
+                            <?php
+                        } else {
+                            ?>
+                            <button>login</button>
+                            <button>signup</button>
+                            <button>admin</button>
+                            <?php
+
+                        }
+                        ?>
                         <li>
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvaslogin" aria-controls="offcanvasNavbar">
                                 <span>
