@@ -15,15 +15,14 @@ button {
 }
 
 footer {
-    align-items: bottom;
+    /*align-items: bottom;*/
     background-color: #090A0B;
     -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
     box-shadow: 0px 15px 26px -3px #090A0B !important;
     border-radius: 30px 30px 30px 30px !important;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    height: 30px;
+    margin-top: 40px;
+    padding: 30px;
     color: whitesmoke;
     text-align: center;
 }
@@ -135,4 +134,35 @@ nav.navbar {
 #registerbut {
     width: 100%;
     height: 40%;
+}
+
+button.orariobutton {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19) !important;
+    align-items: center !important;
+    border: 0 !important;
+    border-radius: 100px !important;
+    box-sizing: border-box !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    justify-content: center !important;
+    line-height: 20px !important;
+    max-width: 480px !important;
+    min-height: 40px !important;
+    min-width: 0px !important;
+    overflow: hidden !important;
+    padding: 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    text-align: center !important;
+    touch-action: manipulation !important;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    vertical-align: middle !important;
+    background-color: #94d60a !important;
+    margin-right: 10px !important;
 }
