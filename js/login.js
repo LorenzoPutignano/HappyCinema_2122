@@ -39,22 +39,6 @@ $(document).ready(function() {
         ajax_call_films_show_table();
     });
 
-    $(document).on("click", "#upload", function() {
-        var file_data = $("#myfile").prop("files")[0]; // Getting the properties of file from file field
-        var form_data = new FormData(); // Creating object of FormData class
-        form_data.append("file", file_data) // Appending parameter named file with properties of file_field to form_data
-        form_data.append("user_id", 123) // Adding extra parameters to form_data
-        $.ajax({
-            url: "./upload.php",
-            dataType: 'script',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data, // Setting the data attribute of ajax with file_data
-            type: 'post'
-        });
-    });
-
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -104,37 +88,6 @@ function ajax_search_film(search) {
         },
         error: function(ret) {
 
-        }
-    });
-}
-function Show_card() {
-    $.ajax({
-        type: "POST",
-        url: "./php/films.php",
-    
-        success: function(ret) {
-            //console.log(ret)
-            const nome = ret.split("|");
-            //console.log(nome)
-            var length = nome.length;
-            var html_append = "";
-            var card = "";
-    
-    
-            $("#card").html("");
-    
-            for (var i = 0; i < length - 1; i++) {
-                const campi = nome[i].split(";")
-                card += "<div class='card'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h5 class='card-text'>" + campi[7] + "</h5></div><div class='card-footer'><small class='text-muted'>Last updated 3 mins ago</small></div></div>";
-    
-            }
-            //console.log(nome);
-            html_append += "</table>";
-            $("#card").append(card);
-    
-        },
-        error: function(ret) {
-    
         }
     });
 }
