@@ -31,4 +31,3 @@ function button(id) {
         }
         }
         //bottone.type = "submit";
-}
