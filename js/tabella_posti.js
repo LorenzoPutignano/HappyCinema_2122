@@ -20,6 +20,7 @@ $(document).ready(function() {
 });
 
 function button(id) {
-    alert(n_posti);
-    document.getElementById(id).disabled = true; 
+        var bottone = document.getElementById(id);
+        bottone.disabled = true;
+        //bottone.type = "submit";
 }
