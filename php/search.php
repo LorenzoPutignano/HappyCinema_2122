@@ -1,7 +1,7 @@
 <?php
 require 'conn_DB.php';
 $titolo = $_POST['titolo'];
-//r corn
+
 try {
     $sql_query = "select * from films;";
     $result = $conn->query($sql_query);
