@@ -38,3 +38,5 @@ function button(id) {
 }
         //bottone.type = "submit";
         //bottone.disabled = true;
+        //bottone.type = "submit";
+
