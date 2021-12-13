@@ -54,6 +54,7 @@
                     </head>
 
                     <body style=text-align:center>
+                        <img src='./img/Logo-Happy-Network.png' width='200px'>
                         <h2>Welcome user ".$_COOKIE['id']."</h2> 
                         <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>

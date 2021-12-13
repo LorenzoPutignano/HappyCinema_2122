@@ -60,7 +60,6 @@ $(document).ready(function() {
     $("#bt_film_remove").click(function(event) {
         var id_film = $("#id_film_remove").val();
         ajax_call_remove_film(id_film);
-        showFilms();
     });
 });
 
@@ -107,8 +106,8 @@ function ajax_call_remove_film(id_film) {
             console.log(ret);
             if (ret == "ok") {
                 console.log("film eliminato correttamente!");
-                $("#Tablefilms").innerHTML = "";
-                ajax_call_films_show_table();
+                $("#Tablefilms").html = "";
+                showFilms();
                 console.log("si arrvat do");
             } else {
                 console.log("film non esistente!");
