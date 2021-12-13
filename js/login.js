@@ -139,7 +139,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
         }
     });
 }
-//admin
+//admin connection
 
 function ajax_call_php_login_admin(id_admin, admin_passw) {
     var data = {};
