@@ -37,6 +37,11 @@ $(document).ready(function() {
         ajax_call_films_show_table();
     });
 
+    $('#log_out').click(function(event) {
+
+
+    });
+
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -61,6 +66,24 @@ $(document).ready(function() {
     });
 });
 
+
+function removecookie(event) {
+    $.ajax({
+        type: 'POST',
+        url: './php/removecookie.php',
+
+        success: function(ret) {
+            if (ret == "ok") {
+                console.log(ret);
+                window.open("index.php", "_self")
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
+
 function showFilms() {
     $.ajax({
         type: 'POST',
@@ -73,11 +96,11 @@ function showFilms() {
             var length = nome.length;
             var html_append = '';
 
-            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>rimozione film</td></tr>';
+            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
 
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(';')
-                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td></tr>';
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
             }
             //console.log(nome);
             html_append += '</table>';
@@ -107,8 +130,7 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                setTimeout(function(){alert("film non esistente!");},2000);
-                //alert("film non esistente!");
+                console.log("film non esistente!");
             }
         },
         error: function(ret) {

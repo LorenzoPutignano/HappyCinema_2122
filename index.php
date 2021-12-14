@@ -56,7 +56,7 @@
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
-                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvaslogin' aria-controls='offcanvasNavbar'>
+                            <button id='log_out'>
                                 <span>
                                     <h5>Log Out</h5>
                                 </span>
