@@ -36,8 +36,6 @@
             }
         });
 
-        $("#")
-
         function removeItem(sKey, sPath, sDomain) {
             document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
         }
@@ -56,11 +54,11 @@
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] != ""){ 
+            if($_COOKIE['email'] != null){ 
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['nome']."
+                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['email']."
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -74,14 +72,14 @@
                     </ul>
                 </div>";
              }
-            ?>
-            <?php
+        ?>
+        <?php
             if($_COOKIE['email'] == null){
-                echo"ok";
+                echo  "cookie formattati";
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''> Log In
+                  <img src='./img/utente.png' id='imguser' alt=''> ".$_COOKIE['nome']."
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -108,7 +106,7 @@
                     </ul>
                 </div>";
              }
-             ?>
+        ?>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span>
