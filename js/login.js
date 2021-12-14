@@ -109,7 +109,8 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                setTimeout(function(){alert("film non esistente!");},2000);
+                tempAlert("close",1000);
+                //setTimeout(function(){alert("film non esistente!");},2000);
                 //alert("film non esistente!");
             }
         },

@@ -25,7 +25,7 @@
                                     url: './php/films.php',
 
                                     success: function(ret) {
-                                        console.log(ret)
+                                        //console.log(ret)
                                         const nome = ret.split('|');
                                         //console.log(nome)
                                         var length = nome.length;
