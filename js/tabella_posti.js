@@ -1,7 +1,4 @@
-var n_posti = prompt ("Inserisci il numero dei posti da prenotare");
-
-$(document).ready(function() {
-    
+$(document).ready(function() {       
     var par = $("#table").html("");
     var i = 0;
     var j = 0;
@@ -16,15 +13,15 @@ $(document).ready(function() {
         append += "</tr>"  
     }
     append += "</table>";
+    for (i = 0; i < 49; i++){
+        $("#" + id).addEventListner
+    }
     par.append(append);
-    
 });
-var i = "ciao";
-
-function button(id,i) {
-    var bottone = document.getElementById(id);
-    
-    alert(i);   
+function button(id) {
+    console.log(id);
+    var i = document.read;
+    alert(i);
         /*if (bottone.click) {
             bottone.disabled = true;
             n_posti--;
