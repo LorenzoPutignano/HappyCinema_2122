@@ -60,10 +60,7 @@ $(document).ready(function() {
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
     });
-    $("#bt_film_remove").click(function(event) {
-        var id_film = $("#id_film_remove").val();
-        ajax_call_remove_film(id_film);
-    });
+    
 });
 
 
