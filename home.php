@@ -111,19 +111,9 @@
                     </body>
 
                     </html>";
-                    ?>
-                    <!-- <script>
-                            setInterval(function() {
-                                alert("Elimino cookie")
-                                <?php
-                                    //unset($_COOKIE['id']);
-                                ?>
-                            }, 20000);
-                    </script> -->
-                    <?php
                 }else{
                     header('location: ./index.php');
-                    echo "nada cookie"; 
+                    echo "Error cookie"; 
                 }
             ?> 
         </h1>
