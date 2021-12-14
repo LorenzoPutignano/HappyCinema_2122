@@ -308,6 +308,7 @@ function ajax_call_php_login(client_email, client_passw) {
     var data = {};
     data.email = client_email;
     data.passwd = client_passw;
+    console.log(data);
 
     $.ajax({
         type: "POST",
@@ -315,11 +316,15 @@ function ajax_call_php_login(client_email, client_passw) {
         data: data,
         success: function(ret) {
             if (ret == "err") {
-                alert("Wrong data")
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>Utente non esistente! Effettua il login</div>");
+                    removealert();
+                //alert("Wrong data")
 
             } else {
                 data.nome = ret;
-                alert("logged")
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>[INFO] login in ok!</div>");
+                    removealert();
+                //alert("logged")
                 $.post("save_login_cookie.php", data);
                 window.open("index.php", "_self");
             }

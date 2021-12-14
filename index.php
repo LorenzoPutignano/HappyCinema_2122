@@ -65,7 +65,7 @@
                         
                     </ul>
                 </div>";
-             }else if($_COOKIE['email'] == ""){
+             }else{
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -135,6 +135,10 @@
                                 <button type="button" id="loginbut" class="btn btn-primary">login</button>
                             </form>
                         </div>
+                        <br>
+                        <br>
+                        <div id='boxalert'></div>
+
                     </li>
                 </ul>
             </div>
@@ -179,7 +183,6 @@
             </div>
         </div>
     </nav>
-
     <div id="content" class="d-flex flex-row justify-content-center flex-wrap container-fluid ">
         <div id="card"></div>
     </div>
