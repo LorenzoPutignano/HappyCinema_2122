@@ -112,6 +112,69 @@ function removealert() {
 
 }
 
+function ajax_call_edit_film(id_film_edit) {
+    var data = {};
+    data.id = id_film_edit;
+    console.log(data);
+    $.ajax({
+        type: 'POST',
+        url: './php/film_edit.php',
+
+        success: function(ret) {
+            console.log(ret)
+            const nome = ret.split('|');
+            //console.log(nome)
+            var length = nome.length;
+            var html_append = '';
+
+            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>Genere</td><td style=\'border: 1px solid black;\'>Data_uscita</td><td style=\'border: 1px solid black;\'>orario1</td><td style=\'border: 1px solid black;\'>orario2</td><td style=\'border: 1px solid black;\'>orario3</td><td style=\'border: 1px solid black;\'>descrizione</td><td style=\'border: 1px solid black;\'>Durata_film</td><td style=\'border: 1px solid black;\'>Img_name</td></tr>';
+
+            for (var i = 0; i < length - 1; i++) {
+                const campi = nome[i].split(';')
+                console.log(campi);
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td><td style=\'border: 1px solid black;\' >' + campi[3] + '</td><td style=\'border: 1px solid black;\' >' + campi[4] + '</td><td style=\'border: 1px solid black;\' >' + campi[5] + '</td><td style=\'border: 1px solid black;\' >' + campi[6] + '</td><td style=\'border: 1px solid black;\' >' + campi[7] + '</td><td style=\'border: 1px solid black;\' >' + campi[8] + '</td><td style=\'border: 1px solid black;\' >' + campi[9] + '</td></tr>';            
+            }
+
+            html_append += '</table>';
+            $('#Tablefilms').append(html_append);
+
+        },
+        error: function(ret) {
+
+        }
+    });
+}
+
+function ajax_call_edit_film2() {
+    var data = {};
+    data.id = id_film_edit;
+
+    //console.log(data);
+
+    $.ajax({
+        type: "POST",
+        url: "./php/.php",
+        data: data,
+        success: function(ret) {
+            //console.log(ret);
+            if (ret == "ok") {
+                $("#boxalert").html("<div id='tempalert' class='alert alert-success'>film eliminato correttamente!</div>");
+                removealert();
+                console.log("film eliminato correttamente!");
+                $("#Tablefilms").html = "";
+                showFilms();
+            } else {
+                $("#boxalert").html("<div id='tempalert' class='alert alert-danger'>film non esistente</div>");
+                removealert();
+                //console.log("film non esistente!");
+            }
+        },
+        error: function(ret) {
+
+        }
+    });
+}
+
 function ajax_call_remove_film(id_film) {
     var data = {};
     data.id = id_film;
