@@ -47,35 +47,56 @@
     <nav class="navbar fixed-top navbar-light">
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
-            <div class="container-fluid">
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="./img/utente.png" id="imguser" alt=""> Log In
+        <?php
+            if($_COOKIE['email'] and $_COOKIE['passw'] != ""){ 
+                echo  "<div class='container-fluid'> 
+                <div class='btn-group' role='group'>
+                    <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['nome']."
                 </button>
-                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvaslogin" aria-controls="offcanvasNavbar">
+                            <button id='log_out'>
+                                <span>
+                                    <h5>Log Out</h5>
+                                </span>
+                            </button>
+                        </li>
+                        
+                    </ul>
+                </div>";
+             }else{
+                echo  "<div class='container-fluid'> 
+                <div class='btn-group' role='group'>
+                    <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                  <img src='./img/utente.png' id='imguser' alt=''> Log In
+                </button>
+                    <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
+                        <li>
+                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvaslogin' aria-controls='offcanvasNavbar'>
                                 <span>
                                     <h5>Log In</h5>
                                 </span>
                             </button>
                         </li>
                         <li>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasregister" aria-controls="offcanvasNavbar">
+                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasregister' aria-controls='offcanvasNavbar'>
                                 <span>
                                     <h5>Register</h5>
                                 </span>
                             </button>
                         </li>
                         <li>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvaslogin_admin" aria-controls="offcanvasNavbar">
+                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvaslogin_admin' aria-controls='offcanvasNavbar'>
                                 <span>
                                     <h5>Log Adm</h5>
                                 </span>
                             </button>
                         </li>
                     </ul>
-                </div>
+                </div>";
+             }
+             ?>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span>

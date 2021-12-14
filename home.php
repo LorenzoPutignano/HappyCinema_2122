@@ -25,7 +25,7 @@
                                     url: './php/films.php',
 
                                     success: function(ret) {
-                                        console.log(ret)
+                                        //console.log(ret)
                                         const nome = ret.split('|');
                                         //console.log(nome)
                                         var length = nome.length;
@@ -94,7 +94,7 @@
                                     <label for='durata_film' class='form-label'>Durata</label>
                                     <input type='text' class='form-control' id='durata_film'>
                                 </div>
-                                <input type='submit' id='bt_film' class='btn btn-primary'>ADD IMG</input>
+                                <input type='submit' id='bt_film' class='btn btn-primary'></input>
                             </form>
                         </div>
 
@@ -111,19 +111,9 @@
                     </body>
 
                     </html>";
-                    ?>
-                    <!-- <script>
-                            setInterval(function() {
-                                alert("Elimino cookie")
-                                <?php
-                                    //unset($_COOKIE['id']);
-                                ?>
-                            }, 20000);
-                    </script> -->
-                    <?php
                 }else{
                     header('location: ./index.php');
-                    echo "nada cookie"; 
+                    echo "Error cookie"; 
                 }
             ?> 
         </h1>
