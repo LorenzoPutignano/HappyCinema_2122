@@ -35,12 +35,15 @@
 
             }
         });
+<<<<<<< HEAD
 
         function removeItem(sKey, sPath, sDomain) {
             document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
         }
 
 
+=======
+>>>>>>> 10314a613f3cec50e7a3212453b3c07c503cd5a9
     </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -71,12 +74,17 @@
                         
                     </ul>
                 </div>";
+<<<<<<< HEAD
              }
         ?>
         <?php
             if($_COOKIE['email'] == null){
                 echo  "cookie formattati";
                 echo "<div class='container-fluid'> 
+=======
+             }else if($_COOKIE['email'] == ""){
+                echo  "<div class='container-fluid'> 
+>>>>>>> 10314a613f3cec50e7a3212453b3c07c503cd5a9
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
                   <img src='./img/utente.png' id='imguser' alt=''> ".$_COOKIE['nome']."
