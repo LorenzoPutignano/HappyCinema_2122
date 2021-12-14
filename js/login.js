@@ -57,6 +57,8 @@ $(document).ready(function() {
         }
     });
 
+
+
     $('#log_out').click(function(event) {
         $.ajax({
             type: 'POST',
@@ -134,8 +136,9 @@ $(document).ready(function() {
 
 });
 
-function ajax_call_edit_film() {
-
+function orario_scelto(id) {
+    //qui va fatta la apertura della scelta posti
+    alert(id);
 }
 
 
