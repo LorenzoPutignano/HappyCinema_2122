@@ -139,6 +139,20 @@ $(document).ready(function() {
 function orario_scelto(id) {
     //qui va fatta la apertura della scelta posti
     alert(id);
+    var data = {};
+    data.id = id;
+
+    $.ajax({
+        type: "POST",
+        url: "./php/select_film.php",
+        data: data,
+        success: function(ret) {
+            alert(ret);
+        },
+        error: function(ret) {
+
+        }
+    });
 }
 
 
