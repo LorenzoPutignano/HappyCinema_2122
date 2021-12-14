@@ -132,7 +132,7 @@
                             <form id="loginmenu">
                                 <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email" aria-describedby="basic-addon1"><br>
                                 <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
-                                <button type="button" id="loginbut" class="btn btn-primary">login</button>
+                                <button type="button" id_2="ciao" id="loginbut" class="btn btn-primary">login</button>
                             </form>
                         </div>
                     </li>
