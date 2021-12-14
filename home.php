@@ -29,11 +29,11 @@
                                         //console.log(nome)
                                         var length = nome.length;
                                         var html_append = '';
-                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>REMOVE FILM</td></tr>';                                                               
+                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>REMOVE FILM</td><td style=\'border: 1px solid black;\'>EDIT</td></tr>';                                                               
 
                                         for (var i = 0; i < length - 1; i++) {
                                             const campi = nome[i].split(';');
-                                            html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\'><button id='+campi[0]+' onclick=ajax_call_remove_film(this.id)>REMOVE</button></td></tr>';
+                                            html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\'><button id='+campi[0]+' onclick=ajax_call_remove_film(this.id)>REMOVE</button></td><td style=\'border: 1px solid black;\'><button id='+campi[0]+' onclick=FUNCTION_EDIT_FILM(this.id)>EDIT</button></td></tr>';
                                         }
                                         //console.log(nome);
                                         html_append += '</table>';
@@ -64,6 +64,7 @@
                                 <div class='col-md-6'>
                                     <label for='titolo' class='form-label'>Titolo</label>
                                     <input type='text' class='form-control' id='titolo'>
+
                                 </div>
                                 <div class='col-md-6'>
                                     <label for='genere' class='form-label'>Genere</label>
