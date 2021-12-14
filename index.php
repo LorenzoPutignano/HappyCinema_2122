@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="./img/Favico.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="js/login.js"></script>
     <script>
         $.ajax({
             type: "POST",
@@ -36,6 +36,8 @@
             }
         });
 
+        $("#")
+
         function removeItem(sKey, sPath, sDomain) {
             document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
         }
@@ -54,11 +56,11 @@
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] != null){ 
+            if($_COOKIE['email'] != ""){ 
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['email']."
+                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['nome']."
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -72,11 +74,14 @@
                     </ul>
                 </div>";
              }
+            ?>
+            <?php
             if($_COOKIE['email'] == null){
+                echo"ok";
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''>LOGIN
+                  <img src='./img/utente.png' id='imguser' alt=''> Log In
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -103,7 +108,7 @@
                     </ul>
                 </div>";
              }
-        ?>
+             ?>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span>
