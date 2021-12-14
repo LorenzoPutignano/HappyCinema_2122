@@ -94,6 +94,33 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "block");
 
     });
+    $("#bt_show_user").click(function(event) {
+        $("#addfilm").css("display", "none");
+        $("#removefilm").css("display", "none");
+        $("#Tablefilms").css("display", "none");
+        $("#usertable").css("display", "block");
+        $.ajax({
+            type: "POST",
+            url: "./php/select_user.php",
+            success: function(ret) {
+                const user = ret.split("|");
+                var length = user.length;
+                var html_append = "";
+                html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">ID UTENTE</td><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td style=\"border: 1px solid black;\">EMAIL</td></tr>";
+
+                for (var i = 0; i < length - 1; i++) {
+                    const campi = user[i].split(";")
+                    html_append += "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[0] + "</td><td style=\"border: 1px solid black;\">" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
+                }
+                $("#usertable").append(html_append);
+
+            },
+            error: function(ret) {
+
+            }
+        });
+    });
+
     $("#bt_show_orders").click(function(event) {
         $("#addfilm").css("display", "none");
         $("#removefilm").css("display", "none");
