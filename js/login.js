@@ -67,25 +67,6 @@ $(document).ready(function() {
 });
 
 
-function removecookie() {
-    var data = {};
-    data.email = "null";
-    data.passwd = "null";
-    data.nome = "null";
-
-    $.ajax({
-        type: "POST",
-        url: "./php/removecookie.php",
-        data: data,
-        success: function(ret) {
-            if (ret == "ok");
-        },
-        error: function(ret) {
-
-        }
-    });
-}
-
 function showFilms() {
     $.ajax({
         type: 'POST',
@@ -116,8 +97,8 @@ function showFilms() {
 }
 
 function removealert() {
-    window.setTimeout(function () {
-        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
+    window.setTimeout(function() {
+        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function() {
             $(this).remove();
         });
     }, 400);
@@ -144,7 +125,7 @@ function ajax_call_remove_film(id_film) {
                 showFilms();
             } else {
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
-                    removealert();
+                removealert();
                 //console.log("film non esistente!");
             }
         },
