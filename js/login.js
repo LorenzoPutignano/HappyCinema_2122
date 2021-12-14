@@ -113,7 +113,6 @@ function showFilms() {
     });
 }
 
-<<<<<<< HEAD
 function removealert() {
     window.setTimeout(function () {
         $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
@@ -123,9 +122,6 @@ function removealert() {
 
 }
 
-
-=======
->>>>>>> 636e3aa7ed26ec6599a8b7eb03714d1bc0a7953f
 function ajax_call_remove_film(id_film) {
     var data = {};
     data.id = id_film;
@@ -145,12 +141,9 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-<<<<<<< HEAD
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
                     removealert();
-=======
-                console.log("film non esistente!");
->>>>>>> 636e3aa7ed26ec6599a8b7eb03714d1bc0a7953f
+                //console.log("film non esistente!");
             }
         },
         error: function(ret) {
