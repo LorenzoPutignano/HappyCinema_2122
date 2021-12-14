@@ -38,8 +38,8 @@ $(document).ready(function() {
     });
 
     $('#log_out').click(function(event) {
-
-
+        alert("you're log out");
+        removecookie();
     });
 
     $("#bt_show_add_film").click(function(event) {
@@ -67,17 +67,17 @@ $(document).ready(function() {
 });
 
 
-function removecookie(event) {
-    $.ajax({
-        type: 'POST',
-        url: './php/removecookie.php',
+function removecookie() {
+    var data = {};
+    data.email = "null";
+    data.passwd = "null";
+    data.nome = "null";
 
-        success: function(ret) {
-            if (ret == "ok") {
-                console.log(ret);
-                window.open("index.php", "_self")
-            }
-        },
+    $.ajax({
+        type: "POST",
+        url: "./php/removecookie.php",
+        data: data,
+        success: function(ret) {},
         error: function(ret) {
 
         }
@@ -113,6 +113,15 @@ function showFilms() {
     });
 }
 
+function removealert() {
+    window.setTimeout(function () {
+        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
+            $(this).remove();
+        });
+    }, 400);
+
+}
+
 function ajax_call_remove_film(id_film) {
     var data = {};
     data.id = id_film;
@@ -126,11 +135,15 @@ function ajax_call_remove_film(id_film) {
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
+                $("#boxalert").html("<div id='tempalert' class='alert alert-success'>film eliminato correttamente!</div>");
+                removealert();
                 console.log("film eliminato correttamente!");
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                console.log("film non esistente!");
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
+                    removealert();
+                //console.log("film non esistente!");
             }
         },
         error: function(ret) {

@@ -48,7 +48,7 @@
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] and $_COOKIE['passw'] != ""){ 
+            if($_COOKIE['email'] != ""){ 
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -65,7 +65,7 @@
                         
                     </ul>
                 </div>";
-             }else{
+             }else if($_COOKIE['email'] == ""){
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
