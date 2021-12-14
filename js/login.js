@@ -124,7 +124,7 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
+                $("#boxalert").html("<div id='tempalert' class='alert alert-danger'>film non esistente</div>");
                 removealert();
                 //console.log("film non esistente!");
             }
@@ -300,13 +300,13 @@ function ajax_call_php_login(client_email, client_passw) {
         success: function(ret) {
             if (ret == "err") {
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>Utente non esistente! Effettua il login</div>");
-                    removealert();
+                removealert();
                 //alert("Wrong data")
 
             } else {
                 data.nome = ret;
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>[INFO] login in ok!</div>");
-                    removealert();
+                removealert();
                 //alert("logged")
                 $.post("save_login_cookie.php", data);
                 window.open("index.php", "_self");

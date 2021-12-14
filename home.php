@@ -31,7 +31,7 @@
                                         var length = nome.length;
                                         var html_append = '';
 
-                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
+                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'><b>ID</b></td><td style=\'border: 1px solid black;\'><b>Titolo</b></td></tr>';
 
                                         for (var i = 0; i < length - 1; i++) {
                                             const campi = nome[i].split(';')
