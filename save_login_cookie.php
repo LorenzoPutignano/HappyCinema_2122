@@ -5,5 +5,6 @@
     setcookie("email", $email);
     setcookie("passw", $passw);
     setcookie("nome", $nome);
+    
     header('location: index.php');
 ?>

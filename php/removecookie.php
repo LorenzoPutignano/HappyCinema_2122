@@ -1,9 +1,11 @@
 <?php
-
-unset($_COOKIE['email']);
-unset($_COOKIE['passw']);
-unset($_COOKIE['nome']);
-header('location: ./index.php');
-echo "ok";
-
+    $email = $_POST['email'];
+    $passw = $_POST['passwd'];
+    $nome = $_POST['nome'];
+    echo $email;
+    setcookie("email", $email);
+    setcookie("passw", $passw);
+    setcookie("nome", $nome);
+    
+    header('location: ../index.php');
 ?>

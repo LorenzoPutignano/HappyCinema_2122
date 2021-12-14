@@ -38,8 +38,8 @@ $(document).ready(function() {
     });
 
     $('#log_out').click(function(event) {
-
-
+        alert("you're log out");
+        removecookie();
     });
 
     $("#bt_show_add_film").click(function(event) {
@@ -67,17 +67,17 @@ $(document).ready(function() {
 });
 
 
-function removecookie(event) {
-    $.ajax({
-        type: 'POST',
-        url: './php/removecookie.php',
+function removecookie() {
+    var data = {};
+    data.email = "null";
+    data.passwd = "null";
+    data.nome = "null";
 
-        success: function(ret) {
-            if (ret == "ok") {
-                console.log(ret);
-                window.open("index.php", "_self")
-            }
-        },
+    $.ajax({
+        type: "POST",
+        url: "./php/removecookie.php",
+        data: data,
+        success: function(ret) {},
         error: function(ret) {
 
         }
