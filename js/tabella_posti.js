@@ -1,4 +1,5 @@
 var n_posti = prompt ("Inserisci il numero dei posti da prenotare");
+
 $(document).ready(function() {
     
     var par = $("#table").html("");
@@ -18,15 +19,11 @@ $(document).ready(function() {
     par.append(append);
     
 });
+var i = "ciao";
 
-function button(id) {
-    var i = new Array;
-    var count = 0;
+function button(id,i) {
     var bottone = document.getElementById(id);
-    if (bottone.click) {
-        i[count] = id;
-        count++;
-    }
+    
     alert(i);   
         /*if (bottone.click) {
             bottone.disabled = true;
