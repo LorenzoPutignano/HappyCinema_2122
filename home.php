@@ -5,6 +5,7 @@
     <body>
         <h1>
             <?php
+            session_start();
              if($_SESSION["id"] != null){  
                  echo "
                  <!DOCTYPE html>
@@ -44,6 +45,11 @@
                         </script>
                         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
                         <link rel='stylesheet' href='./css/mystyle.css'>
+                        <style>
+                            body{
+                                background-color: aliceblue !important;
+                            }
+                        </style>
                     </head>
                     <body style=text-align:center>
                         <img src='./img/Logo-Happy-Network.png' width='200px'>
@@ -60,22 +66,22 @@
                         <div id='boxalert'></div>
                         <div id='addfilm' style='display: none;'>
                             <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
-                                IMG TO SAVE: <input type='file' id='imgtosave' name='user_img'><br>
+                                IMG DEL FILM: <input type='file' id='imgtosave' name='user_img' required><br>
                                 <div class='col-md-6'>
                                     <label for='titolo' class='form-label'>Titolo</label>
-                                    <input type='text' class='form-control' id='titolo'>
+                                    <input type='text' class='form-control' id='titolo' required>
                                 </div>
                                 <div class='col-md-6'>
                                     <label for='genere' class='form-label'>Genere</label>
-                                    <input type='text' class='form-control' id='genere'>
+                                    <input type='text' class='form-control' id='genere' required>
                                 </div>
                                 <div class='col-md-12'>
                                     <label for='data_uscita' class='form-label'>Data di Uscita</label>
-                                    <input type='date' class='form-control' id='data_uscita'>
+                                    <input type='date' class='form-control' id='data_uscita' required>
                                 </div>
                                 <div class='col-md-4'>
                                     <label for='orario0' class='form-label'>Orario 1</label>
-                                    <input type='time' class='form-control' id='orario0'>
+                                    <input type='time' class='form-control' id='orario0' required>
                                 </div>
                                 <div class='col-md-4'>
                                     <label for='orario1' class='form-label'>Orario 2</label>
@@ -87,11 +93,11 @@
                                 </div>
                                 <div class='col-md-12'>
                                     <label for='descrizione' class='form-label'>Descrizione</label>
-                                    <input type='text' class='form-control' id='descrizione'>
+                                    <input type='text' class='form-control' id='descrizione' required>
                                 </div>
                                 <div class='col-md-12'>
                                     <label for='durata_film' class='form-label'>Durata</label>
-                                    <input type='text' class='form-control' id='durata_film'>
+                                    <input type='text' class='form-control' id='durata_film' required>
                                 </div>
                                 <input type='submit' id='bt_film' class='btn btn-primary'></input>
                             </form>

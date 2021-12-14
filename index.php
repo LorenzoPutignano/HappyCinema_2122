@@ -134,10 +134,10 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
-                            <form id="loginmenu">
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
-                                <button type="button" id="loginbut" class="btn btn-primary">login</button>
+                            <form id="loginmenu" required>
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="client_email" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
+                                <button type="submit" id="loginbut" class="btn btn-primary">login</button>
                             </form>
                         </div>
                     </li>
@@ -153,10 +153,10 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="registermenu">
-                                <input type="name" class="form-control" placeholder="Nome" aria-label="Nome" id="client_name_register" aria-describedby="basic-addon1"><br>
-                                <input type="name" class="form-control" placeholder="Cognome" aria-label="Nome" id="client_surname_register" aria-describedby="basic-addon1"><br>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email_register" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="client_pass_register" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
+                                <input type="name" class="form-control" placeholder="Nome" aria-label="Nome" id="client_name_register" aria-describedby="basic-addon1" required><br>
+                                <input type="name" class="form-control" placeholder="Cognome" aria-label="Nome" id="client_surname_register" aria-describedby="basic-addon1" required><br>
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email_register" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="client_pass_register" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
                                 <button type="button" id="registerbut" class="btn btn-primary">Register</button>
                             </form>
                         </div>
@@ -173,8 +173,8 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="login_admin_menu" method="POST" enctype="multipart/form-data" action="save_to_cookie.php">
-                                <input type="text" class="form-control" placeholder="id" aria-label="id" id="id_admin" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="admin_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
+                                <input type="text" class="form-control" placeholder="id" aria-label="id" id="id_admin" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="admin_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
                                 <button type="button" id="admin_login_bt" class="btn btn-primary">admin login</button>
                                 <div id="paragrafoerror"></div>
                             </form>
@@ -195,7 +195,7 @@
         </div>
     </footer>
 
-
+    <!--Funzione per la ricerca delle card nella index page -->
     <script type="text/javascript">
         $(".filter").on("keyup", function() {
             var input = $(this).val().toUpperCase();

@@ -1,24 +1,40 @@
 $(document).ready(function() {
     $("#registerbut").click(function(event) {
         //prendere valori da HTML
-        console.log("cliccato register");
+        //console.log("cliccato register");
         var client_name_r = $("#client_name_register").val();
         var client_surname_r = $("#client_surname_register").val();
         var client_email_r = $("#client_email_register").val();
         var client_passw_r = $("#client_pass_register").val();
-        ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r);
+
+        if (!$('#client_name_register').val() & !$('#client_surname_register').val() & !$('#client_email_register').val() & !$('#client_pass_register').val()) {
+            alert('Aweee i campi sono vuoti');
+        } else {
+            ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r);
+        }
+
     });
     $("#loginbut").click(function(event) {
         var client_email = $("#client_email").val();
         var client_passw = $("#client_pass").val();
-        ajax_call_php_login(client_email, client_passw);
+        console.log(client_passw + client_email);
+        if (!$('#client_email').val() & !$('#client_pass').val()) {
+            alert('Aweee i campi sono vuoti');
+        } else {
+            ajax_call_php_login(client_email, client_passw);
+        }
+
     });
     $("#admin_login_bt").click(function(event) {
         //prendere valori da HTML
-        console.log("cliccato login");
+        //console.log("cliccato login");
         var id_admin = $("#id_admin").val();
         var admin_passw = $("#admin_pass").val();
-        ajax_call_php_login_admin(id_admin, admin_passw);
+        if (!$('#id_admin').val() & !$('#admin_pass').val()) {
+            alert('Aweee i campi sono vuoti');
+        } else {
+            ajax_call_php_login_admin(id_admin, admin_passw);
+        }
     });
 
     $("#bt_film").click(function(event) {
@@ -33,8 +49,12 @@ $(document).ready(function() {
         var orario2 = $("#orario2").val();
         var descrizione = $("#descrizione").val();
         var durata_film = $("#durata_film").val();
-        ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final);
-        ajax_call_films_show_table();
+
+        if (!$('#titolo').val() & !$('#genere').val() & !$('#orario0').val() & !$('#descrizione').val() & !$('#durata_film').val()) {
+            alert('Aweee i campi sono vuoti');
+        } else {
+            ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final);
+        }
     });
 
     $('#log_out').click(function(event) {
@@ -78,14 +98,6 @@ $(document).ready(function() {
         $("#addfilm").css("display", "none");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
-    });
-
-    $("#search").click(function(event) {
-        var search = $("#isearch").val();
-        //var search = document.getElementById("isearch").value;
-        //var film = document.getElementsByClassName("card-body");
-        //var f = document.getElementsByClassName("card-title");
-        ajax_search_film(search);
     });
 
 });
