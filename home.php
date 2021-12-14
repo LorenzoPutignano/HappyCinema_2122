@@ -94,7 +94,7 @@
                                     <label for='durata_film' class='form-label'>Durata</label>
                                     <input type='text' class='form-control' id='durata_film'>
                                 </div>
-                                <input type='submit' id='bt_film' class='btn btn-primary'>ADD IMG</input>
+                                <input type='submit' id='bt_film' class='btn btn-primary'></input>
                             </form>
                         </div>
 
