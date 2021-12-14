@@ -73,11 +73,10 @@
                 </div>";
              }
             if($_COOKIE['email'] == null){
-                echo "cookie formattati";
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''> ".$_COOKIE['nome']."
+                  <img src='./img/utente.png' id='imguser' alt=''>LOGIN
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
