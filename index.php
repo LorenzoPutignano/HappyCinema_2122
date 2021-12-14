@@ -35,6 +35,12 @@
 
             }
         });
+
+        function removeItem(sKey, sPath, sDomain) {
+            document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+        }
+
+
     </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -47,12 +53,20 @@
     <nav class="navbar fixed-top navbar-light">
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
+        <?php 
+            
+            if ($_COOKIE["email"] == null)
+                echo "[WARNING] ptg il pollo!";
+            else
+                echo "Welcome " . $_COOKIE["email"]; 
+            
+            ?> 
         <?php
-            if($_COOKIE['email'] != ""){ 
+            if($_COOKIE['email'] != null){ 
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['nome']."
+                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['email']."
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -65,11 +79,16 @@
                         
                     </ul>
                 </div>";
-             }else if($_COOKIE['email'] == ""){
-                echo  "<div class='container-fluid'> 
+             }
+             
+        ?>
+        <?php
+            if($_COOKIE['email'] == null){
+                echo  "cookie formattati";
+                echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''> Log In
+                  <img src='./img/utente.png' id='imguser' alt=''> ".$_COOKIE['nome']."
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
@@ -96,7 +115,7 @@
                     </ul>
                 </div>";
              }
-             ?>
+        ?>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span>
