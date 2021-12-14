@@ -90,14 +90,15 @@ function showFilms() {
     });
 }
 
-function myAlert(msg,title,width,height,timeout) {
-    var myWindow = window.open("", "",`width=${width},height=${height},left=${(window.outerWidth/2-width/2)},top=0`); //open a new popup at the top height and middle width of the current window
-    myWindow.document.write(`<center id="msg">`+msg+`</center>`); //write the message you want to display
-    myWindow.document.title = title; //write the title of the alert box
-    setTimeout(function(){
-        myWindow.close(); //close the popup
-    },timeout||3000) //in 3 secondes (3000 milliseconds)
+function removealert() {
+    window.setTimeout(function () {
+        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
+            $(this).remove();
+        });
+    }, 400);
+
 }
+
 
 function ajax_call_remove_film(id_film) {
     var data = {};
@@ -112,16 +113,14 @@ function ajax_call_remove_film(id_film) {
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
+                $("#boxalert").html("<div id='tempalert' class='alert alert-success'>film eliminato correttamente!</div>");
+                removealert();
                 console.log("film eliminato correttamente!");
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                setTimeout(function(){
-                    myWindow.close(); //close the popup
-                },timeout||3000) //in 3 secondes (3000 milliseconds)
-                //tempAlert("close",1000);
-                //setTimeout(function(){alert("film non esistente!");},2000);
-                //alert("film non esistente!");
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
+                    removealert();
             }
         },
         error: function(ret) {

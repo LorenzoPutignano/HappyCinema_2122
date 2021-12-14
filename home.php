@@ -59,6 +59,7 @@
                         <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
                         <br>
+                        <div id='boxalert'></div>
                         <div id='addfilm' style='display: none;'>
                             <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
                                 IMG TO SAVE: <input type='file' id='imgtosave' name='user_img'><br>
