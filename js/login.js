@@ -9,8 +9,6 @@ $(document).ready(function() {
         ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r);
     });
     $("#loginbut").click(function(event) {
-        //prendere valori da HTML
-        //console.log("cliccato login");
         var client_email = $("#client_email").val();
         var client_passw = $("#client_pass").val();
         ajax_call_php_login(client_email, client_passw);
@@ -282,11 +280,14 @@ function ajax_call_php_login(client_email, client_passw) {
         url: "./php/login.php",
         data: data,
         success: function(ret) {
-            //console.log("Ok Logged")
-            if (ret == "ok") {
-                alert('Benvenuto');
-            } else {
+            if (ret == "err") {
                 alert("Wrong data")
+
+            } else {
+                data.nome = ret;
+                alert("logged")
+                $.post("save_login_cookie.php", data);
+                window.open("index.php", "_self");
             }
         },
         error: function(ret) {
