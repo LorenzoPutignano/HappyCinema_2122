@@ -48,7 +48,7 @@
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] and $_COOKIE['passw'] != ""){ 
+            if($_COOKIE['email'] != ""){ 
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -56,7 +56,7 @@
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
-                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvaslogin' aria-controls='offcanvasNavbar'>
+                            <button id='log_out'>
                                 <span>
                                     <h5>Log Out</h5>
                                 </span>
@@ -65,7 +65,7 @@
                         
                     </ul>
                 </div>";
-             }else{
+             }else if($_COOKIE['email'] == ""){
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>

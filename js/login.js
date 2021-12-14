@@ -37,6 +37,11 @@ $(document).ready(function() {
         ajax_call_films_show_table();
     });
 
+    $('#log_out').click(function(event) {
+        alert("you're log out");
+        removecookie();
+    });
+
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -61,6 +66,24 @@ $(document).ready(function() {
     });
 });
 
+
+function removecookie() {
+    var data = {};
+    data.email = "null";
+    data.passwd = "null";
+    data.nome = "null";
+
+    $.ajax({
+        type: "POST",
+        url: "./php/removecookie.php",
+        data: data,
+        success: function(ret) {},
+        error: function(ret) {
+
+        }
+    });
+}
+
 function showFilms() {
     $.ajax({
         type: 'POST',
@@ -73,11 +96,11 @@ function showFilms() {
             var length = nome.length;
             var html_append = '';
 
-            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>rimozione film</td></tr>';
+            html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
 
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(';')
-                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td></tr>';
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
             }
             //console.log(nome);
             html_append += '</table>';
@@ -90,6 +113,7 @@ function showFilms() {
     });
 }
 
+<<<<<<< HEAD
 function removealert() {
     window.setTimeout(function () {
         $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
@@ -100,6 +124,8 @@ function removealert() {
 }
 
 
+=======
+>>>>>>> 636e3aa7ed26ec6599a8b7eb03714d1bc0a7953f
 function ajax_call_remove_film(id_film) {
     var data = {};
     data.id = id_film;
@@ -119,8 +145,12 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
+<<<<<<< HEAD
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
                     removealert();
+=======
+                console.log("film non esistente!");
+>>>>>>> 636e3aa7ed26ec6599a8b7eb03714d1bc0a7953f
             }
         },
         error: function(ret) {
