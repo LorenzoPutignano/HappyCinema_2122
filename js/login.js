@@ -87,9 +87,12 @@ $(document).ready(function() {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
+        $("#usertable").css("display", "none");
+
     });
     $("#bt_show_remove_film").click(function(event) {
         $("#addfilm").css("display", "none");
+        $("#usertable").css("display", "none");
         $("#removefilm").css("display", "block");
         $("#Tablefilms").css("display", "block");
 
@@ -125,9 +128,15 @@ $(document).ready(function() {
         $("#addfilm").css("display", "none");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
+        $("#usertable").css("display", "none");
+
     });
 
 });
+
+function ajax_call_edit_film() {
+
+}
 
 
 function showFilms() {
