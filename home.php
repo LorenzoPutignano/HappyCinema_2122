@@ -100,11 +100,6 @@
                         <div id='removefilm' style='display: none;'>
                         <br>
                             <div id='Tablefilms' style='display: none;'></div>
-                            <div class='input-group mb-3'>
-                                <span class='input-group-text' id='basic-addon1'>ID</span>
-                                <input type='number' class='form-control' placeholder='INSERIRE ID FILM DA ELIMINARE' aria-label='ID_FILM' id='id_film_remove' aria-describedby='basic-addon1'>
-                                <button type='button' id='bt_film_remove' class='btn btn-primary' onload='showFilms()'>REMOVE</button>
-                            </div>
                     </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                     </body>
