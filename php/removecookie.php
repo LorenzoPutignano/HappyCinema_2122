@@ -1,9 +1,11 @@
 <?php
-    $email = $_POST['emailcok'];
-    $passw = $_POST['passwdcok'];
-    $nome = $_POST['nomecok'];
+    $email = $_POST['email'];
+    $passw = $_POST['passwd'];
+    $nome = $_POST['nome'];
     echo $email;
-    setcookie("email", "");
-    setcookie("passw", "");
-    setcookie("nome", "");
+    setcookie("email", $email);
+    setcookie("passw", $passw);
+    setcookie("nome", $nome);
+    
+    header('location: ../index.php');
 ?>
