@@ -48,7 +48,8 @@
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] != ""){ 
+            session_start();
+            if($_SESSION["email"] != null){
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -68,7 +69,8 @@
              }
             ?>
             <?php
-            if($_COOKIE['email'] == null){
+            session_start();
+            if($_SESSION["email"] == null){
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -187,7 +189,7 @@
         <div id="card"></div>
     </div>
     <footer class="footer">
-        <div class="text-center text-dark p-3 footer">
+        <div class="text-center text-dark footer">
             © 2021 Copyright:
             <a class="text-dark " href="https://www.happy-network.eu/ ">HappyCinema.com</a>
         </div>

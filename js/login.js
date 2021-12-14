@@ -43,8 +43,7 @@ $(document).ready(function() {
             url: './php/removecookie.php',
 
             success: function(ret) {
-                alert("ok cokiee fooorse eliminati ti apro una nuova window");
-                window.open("./index.php");
+                window.open("./index.php", "_self");
             },
             error: function(ret) {
 
@@ -63,6 +62,12 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "block");
 
     });
+    $("#bt_show_orders").click(function(event) {
+        $("#addfilm").css("display", "none");
+        $("#removefilm").css("display", "none");
+        $("#Tablefilms").css("display", "none");
+    });
+
     $("#search").click(function(event) {
         var search = $("#isearch").val();
         //var search = document.getElementById("isearch").value;

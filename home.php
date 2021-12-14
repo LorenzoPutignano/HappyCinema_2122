@@ -50,6 +50,7 @@
                         <h2>Welcome user ".$_COOKIE['id']."</h2> 
                         <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
+                        <button type='button' id='bt_show_orders' class='btn btn-primary'>SHOW ORDERS</button>
                         <br>
                         <div id='boxalert'></div>
                         <div id='addfilm' style='display: none;'>
