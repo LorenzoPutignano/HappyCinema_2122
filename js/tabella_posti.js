@@ -18,10 +18,16 @@ $(document).ready(function() {
     }
     par.append(append);
 });
+var i = 0;
 function button(id) {
-    console.log(id);
-    var i = document.read;
-    alert(i);
+    var bottone = document.getElementById(id);
+    if (i == 0) {
+        i += id;
+    } else {
+        i += ";" + id;
+    }
+    console.log(i);
+    bottone.disabled = true;
         /*if (bottone.click) {
             bottone.disabled = true;
             n_posti--;

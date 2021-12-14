@@ -77,7 +77,9 @@ function removecookie() {
         type: "POST",
         url: "./php/removecookie.php",
         data: data,
-        success: function(ret) {},
+        success: function(ret) {
+            if (ret == "ok");
+        },
         error: function(ret) {
 
         }
