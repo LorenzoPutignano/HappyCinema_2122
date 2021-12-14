@@ -5,7 +5,7 @@
     <body>
         <h1>
             <?php
-             if($_COOKIE['id'] != ""){  
+             if($_SESSION["id"] != null){  
                  echo "
                  <!DOCTYPE html>
                     <html lang='en'>
@@ -47,7 +47,12 @@
                     </head>
                     <body style=text-align:center>
                         <img src='./img/Logo-Happy-Network.png' width='200px'>
-                        <h2>Welcome user ".$_COOKIE['id']."</h2> 
+                        <h2>Welcome user ".$_COOKIE['id']."</h2>
+                        <button id='log_out_admin'>
+                                <span>
+                                    <h5>Log Out</h5>
+                                </span>
+                            </button>
                         <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
                         <button type='button' id='bt_show_orders' class='btn btn-primary'>SHOW ORDERS</button>

@@ -50,7 +50,19 @@ $(document).ready(function() {
             }
         });
     });
+    $('#log_out_admin').click(function(event) {
+        $.ajax({
+            type: 'POST',
+            url: './php/remove_admincookie.php',
 
+            success: function(ret) {
+                window.open("./index.php", "_self");
+            },
+            error: function(ret) {
+
+            }
+        });
+    });
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
