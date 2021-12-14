@@ -22,7 +22,7 @@ var i = 0;
 function button(id) {
     var bottone = document.getElementById(id);
     if (i == 0) {
-        i += id;
+        i = id;
     } else {
         i += ";" + id;
     }
