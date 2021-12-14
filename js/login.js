@@ -38,8 +38,18 @@ $(document).ready(function() {
     });
 
     $('#log_out').click(function(event) {
-        alert("you're log out");
-        removecookie();
+        $.ajax({
+            type: 'POST',
+            url: './php/removecookie.php',
+
+            success: function(ret) {
+                alert("ok cokiee fooorse eliminati ti apro una nuova window");
+                window.open("./index.php");
+            },
+            error: function(ret) {
+
+            }
+        });
     });
 
     $("#bt_show_add_film").click(function(event) {
@@ -60,7 +70,7 @@ $(document).ready(function() {
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
     });
-    
+
 });
 
 
