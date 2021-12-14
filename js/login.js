@@ -70,33 +70,9 @@ $(document).ready(function() {
         //var f = document.getElementsByClassName("card-title");
         ajax_search_film(search);
     });
-<<<<<<< HEAD
 
-=======
-    $("#bt_film_remove").click(function(event) {
-        var id_film = $("#id_film_remove").val();
-        ajax_call_remove_film(id_film);
-    });
->>>>>>> 10314a613f3cec50e7a3212453b3c07c503cd5a9
 });
 
-
-function removecookie() {
-    var data = {};
-    data.email = "null";
-    data.passwd = "null";
-    data.nome = "null";
-
-    $.ajax({
-        type: "POST",
-        url: "./php/removecookie.php",
-        data: data,
-        success: function(ret) {},
-        error: function(ret) {
-
-        }
-    });
-}
 
 function showFilms() {
     $.ajax({
@@ -128,8 +104,8 @@ function showFilms() {
 }
 
 function removealert() {
-    window.setTimeout(function () {
-        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function () {
+    window.setTimeout(function() {
+        $("#tempalert").fadeTo(1000, 0).slideUp(1000, function() {
             $(this).remove();
         });
     }, 400);
@@ -155,8 +131,8 @@ function ajax_call_remove_film(id_film) {
                 $("#Tablefilms").html = "";
                 showFilms();
             } else {
-                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>film non esistente</div>");
-                    removealert();
+                $("#boxalert").html("<div id='tempalert' class='alert alert-danger'>film non esistente</div>");
+                removealert();
                 //console.log("film non esistente!");
             }
         },
@@ -322,6 +298,7 @@ function ajax_call_php_login(client_email, client_passw) {
     var data = {};
     data.email = client_email;
     data.passwd = client_passw;
+    console.log(data);
 
     $.ajax({
         type: "POST",
@@ -329,11 +306,15 @@ function ajax_call_php_login(client_email, client_passw) {
         data: data,
         success: function(ret) {
             if (ret == "err") {
-                alert("Wrong data")
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>Utente non esistente! Effettua il login</div>");
+                removealert();
+                //alert("Wrong data")
 
             } else {
                 data.nome = ret;
-                alert("logged")
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>[INFO] login in ok!</div>");
+                removealert();
+                //alert("logged")
                 $.post("save_login_cookie.php", data);
                 window.open("index.php", "_self");
             }
