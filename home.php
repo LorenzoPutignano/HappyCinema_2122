@@ -4,9 +4,6 @@
     </head>
     <body>
         <h1>
-            <?php
-             if($_COOKIE['id'] != ""){  
-                 echo "
                  <!DOCTYPE html>
                     <html lang='en'>
 
@@ -21,31 +18,31 @@
                             
                             function showFilms(){
                                 $.ajax({
-                                    type: 'POST',
-                                    url: './php/films.php',
-
-                                    success: function(ret) {
-                                        //console.log(ret)
-                                        const nome = ret.split('|');
-                                        //console.log(nome)
-                                        var length = nome.length;
-                                        var html_append = '';
-
-                                        html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td></tr>';
-
-                                        for (var i = 0; i < length - 1; i++) {
-                                            const campi = nome[i].split(';')
-                                            html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td></tr>';
-                                        }
-                                        //console.log(nome);
-                                        html_append += '</table>';
-                                        $('#Tablefilms').html(html_append);
-
-                                    },
-                                    error: function(ret) {
-
-                                    }
-                                });
+                            type: "POST",
+                            url: "./php/films.php",
+                
+                            success: function(ret) {
+                                //console.log(ret)
+                                const nome = ret.split("|");
+                                //console.log(nome)
+                                var length = nome.length;
+                                var html_append = "";
+                                var card = "";
+                
+                                $("#card").html("");
+                
+                                for (var i = 0; i < length - 1; i++) {
+                                    const campi = nome[i].split(";")
+                                    card += "<div class='card'class='filter' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h4>Genere : " + campi[2] + "</h4><h5 class='card-text'>" + campi[7] + "</h5><button class='orariobutton'>" + campi[4] + "</button><button class='orariobutton'>" + campi[5] + "</button><button class='orariobutton'>" + campi[6] + "</button></div><div class='card-footer'><small class='text-muted'>Durata Film : " + campi[8] + " minuti</small></div></div>";
+                                }
+                                //console.log(nome);
+                                html_append += "</table>";
+                                $("#card").append(card);
+                            },
+                            error: function(ret) {
+                
+                            }
+                        });
                             }
                             showFilms();
                         </script>
@@ -53,13 +50,16 @@
                         <link rel='stylesheet' href='./css/mystyle.css'>
                     </head>
 
-                    <body style=text-align:center>
+                    <body style=text-align:left>
                         <img src='./img/Logo-Happy-Network.png' width='200px'>
-                        <h2>Welcome user ".$_COOKIE['id']."</h2> 
-                        <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
+                        
+                        <button align='right' type='button' id='bt_show_add_film' class='btn btn-primary' style='
+                        float: right'>ADD NEW FILM</button>
+                        <h2>Welcome admin </h2> 
+                        
+                        
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE FILM</button>
                         <br>
-                        <div id='boxalert'></div>
                         <div id='addfilm' style='display: none;'>
                             <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
                                 IMG TO SAVE: <input type='file' id='imgtosave' name='user_img'><br>
@@ -108,15 +108,13 @@
                                 <button type='button' id='bt_film_remove' class='btn btn-primary' onload='showFilms()'>REMOVE</button>
                             </div>
                     </div>
+                    <div id="content" class="d-flex flex-row justify-content-center flex-wrap container-fluid ">
+                        <div id="card"></div>
+                    </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                     </body>
 
-                    </html>";
-                }else{
-                    header('location: ./index.php');
-                    echo "Error cookie"; 
-                }
-            ?> 
+                    </html>
         </h1>
     </body>
 </html>
