@@ -13,21 +13,19 @@ $(document).ready(function() {
         append += "</tr>"  
     }
     append += "</table>";
-    for (i = 0; i < 49; i++){
-        $("#" + id).addEventListner
-    }
     par.append(append);
 });
 var i = 0;
 function button(id) {
     var bottone = document.getElementById(id);
     if (i == 0) {
-        i += id;
+        i = id;
     } else {
         i += ";" + id;
     }
     console.log(i);
     bottone.disabled = true;
+    $("#" + id).css("background","red");
         /*if (bottone.click) {
             bottone.disabled = true;
             n_posti--;

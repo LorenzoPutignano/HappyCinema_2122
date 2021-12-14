@@ -72,10 +72,8 @@
                     </ul>
                 </div>";
              }
-        ?>
-        <?php
             if($_COOKIE['email'] == null){
-                echo  "cookie formattati";
+                echo "cookie formattati";
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>

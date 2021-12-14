@@ -3,7 +3,8 @@ require 'conn_DB.php';
 $email = $_POST['email'];
 $pass = $_POST['passwd'];
 $pass_cript = hash('sha256',$pass);
-
+setcookie("email", $email);
+setcookie("passw", $passw);
 
 try {
     $sql_query = "select nome,email,password from utente where email='".$email."' and password='".$pass_cript."'";
