@@ -112,16 +112,16 @@ function removealert() {
 
 }
 
-function ajax_call_edit_film(id_film_edit) {
+function ajax_call_edit_film(nome_film_edit) {
     var data = {};
-    data.id = id_film_edit;
-    console.log(data);
+    data.nome_film = nome_film_edit;
+    console.log(nome_film);
     $.ajax({
         type: 'POST',
         url: './php/film_edit.php',
 
         success: function(ret) {
-            console.log(ret)
+            console.log(ret);
             const nome = ret.split('|');
             //console.log(nome)
             var length = nome.length;
