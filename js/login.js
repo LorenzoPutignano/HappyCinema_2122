@@ -229,10 +229,9 @@ function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_n
 
 
 function orario_scelto(id) {
-    alert("mando dati scelti alla pagina");
+    //alert("mando dati scelti alla pagina");
     //qui va fatta la apertura della scelta posti
     const dati = id.split("|");
-    console.log(dati[0], dati[1])
     var data = {};
     data.id = dati[0];
     data.orario = dati[1];
@@ -243,6 +242,7 @@ function orario_scelto(id) {
         url: "./php/select_film.php",
         data: data,
         success: function(ret) {
+            alert(ret);
             //qui gli devi mandare le info che servono per fare la prenotazione
             //fai la post al file chose_set e preleva i dati dal file
             $.post("./Chose_set.php", data);
