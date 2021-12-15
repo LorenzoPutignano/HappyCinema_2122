@@ -36,19 +36,7 @@
 
             }
         });
-<<<<<<< HEAD
 
-        $("#")
-
-        function removeItem(sKey, sPath, sDomain) {
-            document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
-        }
-
-
-=======
-        }
-        
->>>>>>> d4655fec2072802deed3dd54cddd08123ba5aa0a
     </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
