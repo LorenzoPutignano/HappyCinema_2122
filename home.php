@@ -5,6 +5,7 @@
     <body>
         <h1>
             <?php
+            include 'read.php';
             session_start();
              if($_SESSION["id"] != null){  
                  echo "
@@ -107,7 +108,7 @@
                             IMG DEL FILM: <input type='file' id='imgtosave_new' name='user_img'><br>
                             <div class='col-md-6'>
                                 <label for='titolo' class='form-label'>Titolo</label>
-                                <input type='text' class='form-control' id='titolo_new'>
+                                <input type='text' value= '$titolo' class='form-control' id='titolo_new'>
                             </div>
                             <div class='col-md-6'>
                                 <label for='genere' class='form-label'>Genere</label>
