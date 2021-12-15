@@ -57,6 +57,26 @@ $(document).ready(function() {
         }
     });
 
+    $("#bt_film_new").click(function(event) {
+        var img_film_start = $("#imgtosave_new").val();
+        var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
+        var img_film_final_new = img_film_ok.replace('Cfakepath', '');
+        var titolo_new = $("#titolo_new").val();
+        var genere_new = $("#genere_new").val();
+        var data_uscita_new = $("#data_uscita_new").val();
+        var orario0_new = $("#orario0_new").val();
+        var orario1_new = $("#orario1_new").val();
+        var orario2_new = $("#orario2_new").val();
+        var descrizione_new = $("#descrizione_new").val();
+        var durata_new = $("#durata_new").val();
+
+        if (!$('#titolo_new').val() & !$('#genere_new').val() & !$('#orario0_new').val() & !$('#descrizione_new').val() & !$('#durata_new').val()) {
+            alert('Aweee i campi sono vuoti');
+        } else {
+            ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new);
+        }
+    });
+
 
 
     $('#log_out').click(function(event) {
@@ -165,7 +185,7 @@ function ajax_call_ciao_film(id_film) {
     
             $('#Tablefilms').append(html_append);
             $("#updatefilm").css("display", "block");
-            //ajax_call_edit_film2();
+            
 
         },
         error: function(ret) {
@@ -174,17 +194,9 @@ function ajax_call_ciao_film(id_film) {
     });
 }
 
-function ajax_call_edit_film2(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final, titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new) {
+function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new) {
     var data = {};
-    data.titolo_old = titolo;
-    data.genere_old = genere;
-    data.data_uscita_old = data_uscita;
-    data.orario0_old = orario0;
-    data.orario1_old = orario1;
-    data.orario2_old = orario2;
-    data.descrizione_old = descrizione;
-    data.durata_old = durata_film;
-    data.img_film_old = img_film_final;
+    data.id = id_film;
 
     data.titolo_new = titolo_new;
     data.genere_new = genere_new;

@@ -1,16 +1,7 @@
 <?php
 require 'conn_DB.php';
-$id = $_POST['id'];
-
-$titolo_old = $_POST["titolo_old"];
-$genere_old = $_POST["genere_old"];
-$data_uscita_old = $_POST["data_uscita_old"];
-$orario0_old = $_POST["orario0_old"];
-$orario1_old = $_POST["orario1_old"];
-$orario2_old = $_POST["orario2_old"];
-$descrizione_old = $_POST["descrizione_old"];
-$durata_old = $_POST["durata_old"];
-$img_film_name_old = $_POST['img_film_old'];
+include 'film_edit.php';
+//$id = $_POST['id'];
 
 $titolo_new = $_POST["titolo_new"];
 $genere_new = $_POST["genere_new"];
