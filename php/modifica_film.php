@@ -1,7 +1,6 @@
 <?php
 require 'conn_DB.php';
 include 'film_edit.php';
-//$id = $_POST['id'];
 
 $titolo_new = $_POST["titolo_new"];
 $genere_new = $_POST["genere_new"];
@@ -14,7 +13,7 @@ $durata_new = $_POST["durata_new"];
 $img_film_name_new = $_POST['img_film_new'];
 
 try {
-    $sql_query_update = "UPDATE films set titolo='" . $titolo_new . "', genere='" . $genere_new . "', data_uscita='" . $data_uscita_new . "',
+    $sql_query_update = "update films set id_film='" . $id . "', titolo='" . $titolo_new . "', genere='" . $genere_new . "', data_uscita='" . $data_uscita_new . "',
     orario0='" . $orario0_new . "', orario1='" . $orario1_new . "', orario2='" . $orario2_new . "', descrizione='" . $descrizione_new . "',
     durata_film='" . $durata_new . "', img_film='" . $img_film_name_new . "' where id_film='" . $id . "'";
     $result = $conn->query($sql_query_update);

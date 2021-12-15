@@ -178,7 +178,7 @@ function ajax_call_ciao_film(id_film) {
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(';')
                     //console.log(campi);
-                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td><td style=\'border: 1px solid black;\' >' + campi[3] + '</td><td style=\'border: 1px solid black;\' >' + campi[4] + '</td><td style=\'border: 1px solid black;\' >' + campi[5] + '</td><td style=\'border: 1px solid black;\' >' + campi[6] + '</td><td style=\'border: 1px solid black;\' >' + campi[7] + '</td><td style=\'border: 1px solid black;\' >' + campi[8] + '</tr>';
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td><td style=\'border: 1px solid black;\' >' + campi[3] + '</td><td style=\'border: 1px solid black;\' >' + campi[4] + '</td><td style=\'border: 1px solid black;\' >' + campi[5] + '</td><td style=\'border: 1px solid black;\' >' + campi[6] + '</td><td style=\'border: 1px solid black;\' >' + campi[7] + '</td><td style=\'border: 1px solid black;\' >' + campi[8] + '</td><td style=\'border: 1px solid black;\' >' + campi[9] + '</td></tr>';
             }
 
             html_append += '</table>';
@@ -196,8 +196,6 @@ function ajax_call_ciao_film(id_film) {
 
 function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new) {
     var data = {};
-    data.id = id_film;
-
     data.titolo_new = titolo_new;
     data.genere_new = genere_new;
     data.data_uscita_new = data_uscita_new;
@@ -217,11 +215,10 @@ function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_n
             if (ret == "ok") {
                 $("#boxalert").html("<div id='tempalert' class='alert alert-success'>[INFO] Film modificato con successo!</div>");
                 removealert();
-                //window.open("./home.php", "_self");
+                $("#updatefilm").css("display", "none");
             } else {
                 $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>[ERROR] Il film non può essere modificato!</div>");
                 removealert();
-                //window.open("./home.php", "_self");
             }
         },
         error: function(ret) {
