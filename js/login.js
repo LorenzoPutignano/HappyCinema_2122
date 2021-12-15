@@ -159,8 +159,8 @@ $(document).ready(function() {
 function ajax_call_ciao_film(id_film) {
     var data = {};
     data.id = id_film;
-
     //console.log(data);
+    $("#usertable").css("display", "block");
 
     $.ajax({
         type: "POST",
@@ -171,7 +171,7 @@ function ajax_call_ciao_film(id_film) {
             const nome = ret.split('|');
             //console.log(nome)
             var length = nome.length;
-            var html_append = '';
+            var html_append = "";
 
             html_append += '<table  class=\'table\' style=\'border: 1px solid black;\'><tr><td style=\'border: 1px solid black;\'>ID</td><td style=\'border: 1px solid black;\'>Titolo</td><td style=\'border: 1px solid black;\'>Genere</td><td style=\'border: 1px solid black;\'>Data_uscita</td><td style=\'border: 1px solid black;\'>orario1</td><td style=\'border: 1px solid black;\'>orario2</td><td style=\'border: 1px solid black;\'>orario3</td><td style=\'border: 1px solid black;\'>descrizione</td><td style=\'border: 1px solid black;\'>Durata_film</td><td style=\'border: 1px solid black;\'>Img_name</td></tr>';
 
@@ -183,7 +183,7 @@ function ajax_call_ciao_film(id_film) {
 
             html_append += '</table>';
 
-            $('#Tablefilms').append(html_append);
+            $('#usertable').html(html_append);
             $("#updatefilm").css("display", "block");
 
 
