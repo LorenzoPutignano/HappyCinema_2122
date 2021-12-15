@@ -9,7 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/login.js"></script>
     <script>
-        $.ajax({
+        function showcard(){
+            $.ajax({
             type: "POST",
             url: "./php/films.php",
 
@@ -25,7 +26,7 @@
 
                 for (var i = 0; i < length - 1; i++) {
                     const campi = nome[i].split(";")
-                    card += "<div class='card'class='filter' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h4>Genere : " + campi[2] + "</h4><h5 class='card-text'>" + campi[7] + "</h5><button class='orariobutton'>" + campi[4] + "</button><button class='orariobutton'>" + campi[5] + "</button><button class='orariobutton'>" + campi[6] + "</button></div><div class='card-footer'><small class='text-muted'>Durata Film : " + campi[8] + " minuti</small></div></div>";
+                    card += "<div class='card'class='filter' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h4>Genere : " + campi[2] + "</h4><h5 class='card-text'>" + campi[7] + "</h5><button class='orariobutton' id='"+campi[4]+"' onclick=orario_scelto(this.id)>" + campi[4] + "</button><button class='orariobutton'id='"+campi[5]+"' onclick=orario_scelto(this.id)>" + campi[5] + "</button><button class='orariobutton' id='"+campi[6]+"' onclick=orario_scelto(this.id)>" + campi[6] + "</button></div><div class='card-footer'><small class='text-muted'>Durata Film : " + campi[8] + " minuti</small></div></div>";
                 }
                 //console.log(nome);
                 html_append += "</table>";
@@ -35,6 +36,7 @@
 
             }
         });
+<<<<<<< HEAD
 
         $("#")
 
@@ -43,6 +45,10 @@
         }
 
 
+=======
+        }
+        
+>>>>>>> d4655fec2072802deed3dd54cddd08123ba5aa0a
     </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -50,13 +56,13 @@
     <title>Happy Cinema</title>
 </head>
 
-<body>
-
+<body onload="showcard()">
     <nav class="navbar fixed-top navbar-light">
         <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
-            if($_COOKIE['email'] != ""){ 
+            session_start();
+            if($_SESSION["email"] != null){
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -76,8 +82,8 @@
              }
             ?>
             <?php
-            if($_COOKIE['email'] == null){
-                echo"ok";
+            session_start();
+            if($_SESSION["email"] == null){
                 echo "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -141,10 +147,10 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
-                            <form id="loginmenu">
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
-                                <button type="button" id="loginbut" class="btn btn-primary">login</button>
+                            <form id="loginmenu" required>
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="client_email" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
+                                <button type="submit" id="loginbut" class="btn btn-primary">login</button>
                             </form>
                         </div>
                     </li>
@@ -160,10 +166,10 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="registermenu">
-                                <input type="name" class="form-control" placeholder="Nome" aria-label="Nome" id="client_name_register" aria-describedby="basic-addon1"><br>
-                                <input type="name" class="form-control" placeholder="Cognome" aria-label="Nome" id="client_surname_register" aria-describedby="basic-addon1"><br>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email_register" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="client_pass_register" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
+                                <input type="name" class="form-control" placeholder="Nome" aria-label="Nome" id="client_name_register" aria-describedby="basic-addon1" required><br>
+                                <input type="name" class="form-control" placeholder="Cognome" aria-label="Nome" id="client_surname_register" aria-describedby="basic-addon1" required><br>
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email_register" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="client_pass_register" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
                                 <button type="button" id="registerbut" class="btn btn-primary">Register</button>
                             </form>
                         </div>
@@ -180,8 +186,8 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="login_admin_menu" method="POST" enctype="multipart/form-data" action="save_to_cookie.php">
-                                <input type="text" class="form-control" placeholder="id" aria-label="id" id="id_admin" aria-describedby="basic-addon1"><br>
-                                <input type="password" id="admin_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1"><br>
+                                <input type="text" class="form-control" placeholder="id" aria-label="id" id="id_admin" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="admin_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
                                 <button type="button" id="admin_login_bt" class="btn btn-primary">admin login</button>
                                 <div id="paragrafoerror"></div>
                             </form>
@@ -196,13 +202,13 @@
         <div id="card"></div>
     </div>
     <footer class="footer">
-        <div class="text-center text-dark p-3 footer">
+        <div class="text-center text-dark footer">
             © 2021 Copyright:
             <a class="text-dark " href="https://www.happy-network.eu/ ">HappyCinema.com</a>
         </div>
     </footer>
 
-
+    <!--Funzione per la ricerca delle card nella index page -->
     <script type="text/javascript">
         $(".filter").on("keyup", function() {
             var input = $(this).val().toUpperCase();
