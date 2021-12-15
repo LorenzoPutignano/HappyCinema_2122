@@ -1,0 +1,15 @@
+    body {
+    background-image: url('https://www.thespacecinema.it/assets/css/images/vue_bg.png') !important;
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    color: whitesmoke !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    height: 60px;
+    width: 100px;
+    margin: -20px -20px;
