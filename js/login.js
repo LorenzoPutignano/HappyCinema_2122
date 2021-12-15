@@ -177,15 +177,15 @@ function ajax_call_ciao_film(id_film) {
 
             for (var i = 0; i < length - 1; i++) {
                 const campi = nome[i].split(';')
-                //console.log(campi);
-                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td><td style=\'border: 1px solid black;\' >' + campi[3] + '</td><td style=\'border: 1px solid black;\' >' + campi[4] + '</td><td style=\'border: 1px solid black;\' >' + campi[5] + '</td><td style=\'border: 1px solid black;\' >' + campi[6] + '</td><td style=\'border: 1px solid black;\' >' + campi[7] + '</td><td style=\'border: 1px solid black;\' >' + campi[8] + '</tr>';            
+                    //console.log(campi);
+                html_append += '<tr><td style=\'border: 1px solid black;\'>' + campi[0] + '</td><td style=\'border: 1px solid black;\' >' + campi[1] + '</td><td style=\'border: 1px solid black;\' >' + campi[2] + '</td><td style=\'border: 1px solid black;\' >' + campi[3] + '</td><td style=\'border: 1px solid black;\' >' + campi[4] + '</td><td style=\'border: 1px solid black;\' >' + campi[5] + '</td><td style=\'border: 1px solid black;\' >' + campi[6] + '</td><td style=\'border: 1px solid black;\' >' + campi[7] + '</td><td style=\'border: 1px solid black;\' >' + campi[8] + '</tr>';
             }
 
             html_append += '</table>';
-    
+
             $('#Tablefilms').append(html_append);
             $("#updatefilm").css("display", "block");
-            
+
 
         },
         error: function(ret) {
@@ -232,6 +232,7 @@ function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_n
 
 
 function orario_scelto(id) {
+    alert("mando dati scelti alla pagina");
     //qui va fatta la apertura della scelta posti
     const dati = id.split("|");
     console.log(dati[0], dati[1])
