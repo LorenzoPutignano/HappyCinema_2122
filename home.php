@@ -101,6 +101,7 @@
 
                         <div id='removefilm' style='display: none;'></div>
                         <div id='Tablefilms' style='display: none;'></div>
+                        <div id='usertable' style='display: none;'></div>
                         <br>
 
                         <div id='updatefilm' style='display: none;'>
@@ -140,11 +141,6 @@
                             </div>
                             <input type='submit' id='bt_film_new' class='btn btn-primary'></input>
                         </form>
-                    </div>
-
-                        <div id='usertable' style='display: none;'></div>
-
-                    </div>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                     </body>
                     </html>";
