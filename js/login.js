@@ -68,7 +68,7 @@ $(document).ready(function() {
         var orario1_new = $("#orario1_new").val();
         var orario2_new = $("#orario2_new").val();
         var descrizione_new = $("#descrizione_new").val();
-        var durata_new = $("#durata_new").val();
+        var durata_new = $("#durata_film_new").val();
 
         if (!$('#titolo_new').val() & !$('#genere_new').val() & !$('#orario0_new').val() & !$('#descrizione_new').val() & !$('#durata_new').val()) {
             alert('Aweee i campi sono vuoti');
@@ -110,6 +110,8 @@ $(document).ready(function() {
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "none");
+        $("#updatefilm").css("display", "none");
+
 
     });
     $("#bt_show_remove_film").click(function(event) {
@@ -117,6 +119,8 @@ $(document).ready(function() {
         $("#usertable").css("display", "none");
         $("#removefilm").css("display", "block");
         $("#Tablefilms").css("display", "block");
+        $("#updatefilm").css("display", "none");
+
 
     });
     $("#bt_show_user").click(function(event) {
@@ -124,6 +128,8 @@ $(document).ready(function() {
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "block");
+        $("#updatefilm").css("display", "none");
+
         $.ajax({
             type: "POST",
             url: "./php/select_user.php",
@@ -137,7 +143,7 @@ $(document).ready(function() {
                     const campi = user[i].split(";")
                     html_append += "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[0] + "</td><td style=\"border: 1px solid black;\">" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
                 }
-                $("#usertable").append(html_append);
+                $("#usertable").html(html_append);
 
             },
             error: function(ret) {
@@ -151,6 +157,8 @@ $(document).ready(function() {
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "none");
+        $("#updatefilm").css("display", "none");
+
 
     });
 
@@ -211,7 +219,7 @@ function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_n
         url: "./php/modifica_film.php",
         data: data,
         success: function(ret) {
-            //console.log(ret);
+            console.log(ret);
             if (ret == "ok") {
                 $("#boxalert").html("<div id='tempalert' class='alert alert-success'>[INFO] Film modificato con successo!</div>");
                 removealert();

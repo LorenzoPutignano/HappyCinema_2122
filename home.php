@@ -5,7 +5,6 @@
     <body>
         <h1>
             <?php
-            include 'read.php';
             session_start();
              if($_SESSION["id"] != null){  
                  echo "
@@ -105,42 +104,42 @@
                         <br>
 
                         <div id='updatefilm' style='display: none;'>
-                        <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
-                            IMG DEL FILM: <input type='file' id='imgtosave_new' name='user_img'><br>
-                            <div class='col-md-6'>
-                                <label for='titolo' class='form-label'>Titolo</label>
-                                <input type='text' value= "$titolo" class='form-control' id='titolo_new'>
-                            </div>
-                            <div class='col-md-6'>
-                                <label for='genere' class='form-label'>Genere</label>
-                                <input type='text' class='form-control' id='genere_new'>
-                            </div>
-                            <div class='col-md-12'>
-                                <label for='data_uscita' class='form-label'>Data di Uscita</label>
-                                <input type='date' class='form-control' id='data_uscita_new'>
-                            </div>
-                            <div class='col-md-4'>
-                                <label for='orario0' class='form-label'>Orario 1</label>
-                                <input type='time' class='form-control' id='orario0_new'>
-                            </div>
-                            <div class='col-md-4'>
-                                <label for='orario1' class='form-label'>Orario 2</label>
-                                <input type='time' class='form-control' id='orario1_new'>
-                            </div>
-                            <div class='col-md-4'>
-                                <label for='orario2' class='form-label'>Orario 3</label>
-                                <input type='time' class='form-control' id='orario2_new'>
-                            </div>
-                            <div class='col-md-12'>
-                                <label for='descrizione' class='form-label'>Descrizione</label>
-                                <input type='text' class='form-control' id='descrizione_new'>
-                            </div>
-                            <div class='col-md-12'>
-                                <label for='durata_film' class='form-label'>Durata in minuti</label>
-                                <input type='text' class='form-control' id='durata_film_new'>
-                            </div>
-                            <input type='submit' id='bt_film_new' class='btn btn-primary'></input>
-                        </form>
+                            <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
+                                IMG DEL FILM: <input type='file' id='imgtosave_new' name='user_img'><br>
+                                <div class='col-md-6'>
+                                    <label for='titolo' class='form-label'>Titolo</label>
+                                    <input type='text' class='form-control' id='titolo_new'>
+                                </div>
+                                <div class='col-md-6'>
+                                    <label for='genere' class='form-label'>Genere</label>
+                                    <input type='text' class='form-control' id='genere_new'>
+                                </div>
+                                <div class='col-md-12'>
+                                    <label for='data_uscita' class='form-label'>Data di Uscita</label>
+                                    <input type='date' class='form-control' id='data_uscita_new'>
+                                </div>
+                                <div class='col-md-4'>
+                                    <label for='orario0' class='form-label'>Orario 1</label>
+                                    <input type='time' class='form-control' id='orario0_new'>
+                                </div>
+                                <div class='col-md-4'>
+                                    <label for='orario1' class='form-label'>Orario 2</label>
+                                    <input type='time' class='form-control' id='orario1_new'>
+                                </div>
+                                <div class='col-md-4'>
+                                    <label for='orario2' class='form-label'>Orario 3</label>
+                                    <input type='time' class='form-control' id='orario2_new'>
+                                </div>
+                                <div class='col-md-12'>
+                                    <label for='descrizione' class='form-label'>Descrizione</label>
+                                    <input type='text' class='form-control' id='descrizione_new'>
+                                </div>
+                                <div class='col-md-12'>
+                                    <label for='durata_film' class='form-label'>Durata in minuti</label>
+                                    <input type='text' class='form-control' id='durata_film_new'>
+                                </div>
+                                <input type='submit' value='MODIFICA' id='bt_film_new' class='btn btn-primary'></input>
+                            </form>
                         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
                     </body>
                     </html>";

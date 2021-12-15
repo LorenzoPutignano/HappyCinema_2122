@@ -1,6 +1,8 @@
 <?php
 require 'conn_DB.php';
+session_start();
 $id = $_POST['id'];
+$_SESSION['id_final'] = $id;
 
 try {
     $sql_query = "SELECT * FROM films where id_film='" . $id . "';";    
