@@ -26,7 +26,7 @@
 
                 for (var i = 0; i < length - 1; i++) {
                     const campi = nome[i].split(";")
-                    card += "<div class='card'class='filter' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h4>Genere : " + campi[2] + "</h4><h5 class='card-text'>" + campi[7] + "</h5><button class='orariobutton' id='"+campi[4]+"' onclick=orario_scelto(this.id)>" + campi[4] + "</button><button class='orariobutton'id='"+campi[5]+"' onclick=orario_scelto(this.id)>" + campi[5] + "</button><button class='orariobutton' id='"+campi[6]+"' onclick=orario_scelto(this.id)>" + campi[6] + "</button></div><div class='card-footer'><small class='text-muted'>Durata Film : " + campi[8] + " minuti</small></div></div>";
+                    card += "<div class='card'class='filter' data-string='" + campi[1] + "'><img class='card-img-left' src='./images/" + campi[9] + "' alt='Card image cap'><div class='card-body'><h1 class='card-title'>" + campi[1] + "</h1><h4>Genere : " + campi[2] + "</h4><h5 class='card-text'>" + campi[7] + "</h5><button class='orariobutton' id='"+campi[0]+"|"+campi[4]+"' onclick=orario_scelto(this.id)>" + campi[4] + "</button><button class='orariobutton' id='"+campi[0]+"|"+campi[5]+"' onclick=orario_scelto(this.id)>" + campi[5] + "</button><button class='orariobutton' id='"+campi[0]+"|"+campi[6]+"' onclick=orario_scelto(this.id)>" + campi[6] + "</button></div><div class='card-footer'><small class='text-muted'>Durata Film : " + campi[8] + " minuti</small></div></div>";
                 }
                 //console.log(nome);
                 html_append += "</table>";

@@ -138,9 +138,10 @@ $(document).ready(function() {
 
 function orario_scelto(id) {
     //qui va fatta la apertura della scelta posti
-    alert(id);
+    const dati = id.split("|");
     var data = {};
-    data.id = id;
+    data.id = dati;
+
 
     $.ajax({
         type: "POST",
