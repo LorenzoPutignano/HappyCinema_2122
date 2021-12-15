@@ -1,6 +1,8 @@
 <?php
 require 'conn_DB.php';
-$titolo = "";
+include 'film_edit.php';
+
+$titolo = '';
 $genere = "";
 $data_uscita = "";
 $orario0 = "";
@@ -12,7 +14,7 @@ $img_film_name = "";
 
 
 try {
-    $sql_query = "SELECT * FROM films";
+    $sql_query = "select * from films where id_film='" . $id . "'";
     $result = $conn -> query($sql_query);
     if($result->rowCount() > 0) {
         $row = $result->fetch();
