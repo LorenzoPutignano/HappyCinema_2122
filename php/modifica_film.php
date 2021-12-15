@@ -23,13 +23,14 @@ $durata_new = $_POST["durata_new"];
 $img_film_name_new = $_POST['img_film_new'];
 
 try {
-    $sql_query = "UPDATE films SET titolo =  WHERE id = 1";
-    $result = $conn->query($sql_query);
+    $sql_query_update = "UPDATE films set titolo='" . $titolo_new . "', genere='" . $genere_new . "', data_uscita='" . $data_uscita_new . "',
+    orario0='" . $orario0_new . "', orario1='" . $orario1_new . "',
+    where titolo='" . $titolo_old . "' and genere= '" . $genere_old . "'";
+$result = $conn->query($sql_query_update);
         if ($result->rowCount() >= 1) {
             
             echo"ok";
-        }
-        else {
+        } else {
             
             echo "err";
         }
