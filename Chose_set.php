@@ -1,10 +1,9 @@
 <?php
-$id_scelto = $_POST['id'];
-$orario = $_POST['orario'];
+$film = $_POST['id'];
 
 session_start();
 if($_SESSION['email'] != null){
-    echo $id_scelto;
+    echo $film;
     echo "<!doctype html>
         <html lang='en'>
             <head>
@@ -22,7 +21,7 @@ if($_SESSION['email'] != null){
 
             </head>
             <body onload='show_posti();'>
-                <div id='dati'><h2>".$id_scelto."</h2><h2>".$orario."</h2></div>
+                <h2>".$film."</h2>
                 <div class='container'>
                     <div class='screen'></div>
                 </div>
