@@ -162,16 +162,10 @@ function ajax_call_ciao_film(id_film) {
             }
 
             html_append += '</table>';
-            //ajax_call_edit_film2();
+    
             $('#Tablefilms').append(html_append);
-            $('#editFilm').append("ciao");
-
-            $("#addfilm").css("display", "none");
-            $("#removefilm").css("display", "none");
-            $("#Tablefilms").css("display", "block");
-            $("#usertable").css("display", "none");
-            $("#editFilm").css("display", "block");
-
+            $("#updatefilm").css("display", "block");
+            //ajax_call_edit_film2();
 
         },
         error: function(ret) {
@@ -209,10 +203,12 @@ function ajax_call_edit_film2(titolo, genere, data_uscita, orario0, orario1, ora
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
-                //alert("Film memorizzato con successo!");
+                $("#boxalert").html("<div id='tempalert' class='alert alert-success'>[INFO] Film modificato con successo!</div>");
+                removealert();
                 //window.open("./home.php", "_self");
             } else {
-                //alert("Film gia memorizzato");
+                $("#boxalert").html("<div id='tempalert' class='alert alert-warning'>[ERROR] Il film non può essere modificato!</div>");
+                removealert();
                 //window.open("./home.php", "_self");
             }
         },

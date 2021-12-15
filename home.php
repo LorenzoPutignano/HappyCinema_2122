@@ -97,9 +97,50 @@
                                 <input type='submit' id='bt_film' class='btn btn-primary'></input>
                             </form>
                         </div>
+
                         <div id='removefilm' style='display: none;'></div>
                         <div id='Tablefilms' style='display: none;'></div>
-                        <div id='editFilm' style='display: none;'></div>
+                        <br>
+
+                        <div id='updatefilm' style='display: none;'>
+                        <form class='row g-4' enctype='multipart/form-data' method='POST' action='upload.php'>
+                            IMG DEL FILM: <input type='file' id='imgtosave_new' name='user_img' required><br>
+                            <div class='col-md-6'>
+                                <label for='titolo' class='form-label'>Titolo</label>
+                                <input type='text' class='form-control' id='titolo_new' required>
+                            </div>
+                            <div class='col-md-6'>
+                                <label for='genere' class='form-label'>Genere</label>
+                                <input type='text' class='form-control' id='genere_new' required>
+                            </div>
+                            <div class='col-md-12'>
+                                <label for='data_uscita' class='form-label'>Data di Uscita</label>
+                                <input type='date' class='form-control' id='data_uscita_new' required>
+                            </div>
+                            <div class='col-md-4'>
+                                <label for='orario0' class='form-label'>Orario 1</label>
+                                <input type='time' class='form-control' id='orario0_new' required>
+                            </div>
+                            <div class='col-md-4'>
+                                <label for='orario1' class='form-label'>Orario 2</label>
+                                <input type='time' class='form-control' id='orario1_new'>
+                            </div>
+                            <div class='col-md-4'>
+                                <label for='orario2' class='form-label'>Orario 3</label>
+                                <input type='time' class='form-control' id='orario2_new'>
+                            </div>
+                            <div class='col-md-12'>
+                                <label for='descrizione' class='form-label'>Descrizione</label>
+                                <input type='text' class='form-control' id='descrizione_new' required>
+                            </div>
+                            <div class='col-md-12'>
+                                <label for='durata_film' class='form-label'>Durata in minuti</label>
+                                <input type='text' class='form-control' id='durata_film_new' required>
+                            </div>
+                            <input type='submit' id='bt_film_new' class='btn btn-primary'></input>
+                        </form>
+                    </div>
+
                         <div id='usertable' style='display: none;'></div>
 
                     </div>
