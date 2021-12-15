@@ -244,12 +244,45 @@ function orario_scelto(id) {
         success: function(ret) {
             //qui gli devi mandare le info che servono per fare la prenotazione
             //fai la post al file chose_set e preleva i dati dal file
+            $.post("./Chose_set.php", data);
             window.open("./Chose_set.php", "_self");
         },
         error: function(ret) {
 
         }
     });
+}
+
+function button(id) {
+    var bottone = document.getElementById(id);
+    if (i == 0) {
+        i = id;
+    } else {
+        i += ";" + id;
+    }
+    console.log(i);
+    bottone.disabled = true;
+    $("button#" + id + ".tim").css("background-color", "#ffffff8c");
+}
+
+var i = 0;
+
+function show_posti() {
+    var par = $("#table").html("");
+    var i = 0;
+    var j = 0;
+    var id = 1;
+    var append = " <table> ";
+    for (j = 0; j < 7; j++) {
+        append += "<tr>";
+        for (i = 0; i < 7; i++) {
+            append += "<th> <button type = 'button' class='tim' id = " + id + " onclick='button(id) '> <img src='./img/Posto.png' height='40' > </button> </th>";
+            id++;
+        }
+        append += "</tr>"
+    }
+    append += "</table>";
+    par.append(append);
 }
 
 
