@@ -242,7 +242,7 @@ function orario_scelto(id) {
         url: "./php/select_film.php",
         data: data,
         success: function(ret) {
-            alert(ret);
+            console.log(ret);
             //qui gli devi mandare le info che servono per fare la prenotazione
             //fai la post al file chose_set e preleva i dati dal file
             $.post("./Chose_set.php", data);

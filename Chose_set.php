@@ -1,7 +1,6 @@
 <?php
-$film = $_POST['id'];
-
 session_start();
+
 if($_SESSION['email'] != null){
     echo $film;
     echo "<!doctype html>
@@ -21,9 +20,11 @@ if($_SESSION['email'] != null){
 
             </head>
             <body onload='show_posti();'>
-                <h2>".$film."</h2>
                 <div class='container'>
                     <div class='screen'></div>
+                </div>
+                <div style='text-align: center;'>
+                    <h2>FILM SCELTO : ".$_SESSION['id_film']."</h2><h2>ORARIO SCELTO : ".$_SESSION['orario_film']."</h2><h2>UTENTE : ".$_SESSION['id_utente']."</h2>
                 </div>
                 <div align='center' id='table'></div>                
                 <button type='button' class='btn btn-primary'><h2>Conferma Posto</h2></button>
