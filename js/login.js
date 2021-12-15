@@ -162,7 +162,16 @@ function ajax_call_ciao_film(id_film) {
             }
 
             html_append += '</table>';
+            //ajax_call_edit_film2();
             $('#Tablefilms').append(html_append);
+            $('#editFilm').append("ciao");
+
+            $("#addfilm").css("display", "none");
+            $("#removefilm").css("display", "none");
+            $("#Tablefilms").css("display", "block");
+            $("#usertable").css("display", "none");
+            $("#editFilm").css("display", "block");
+
 
         },
         error: function(ret) {
@@ -171,30 +180,40 @@ function ajax_call_ciao_film(id_film) {
     });
 }
 
-
-
-function ajax_call_edit_film2() {
+function ajax_call_edit_film2(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final, titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new) {
     var data = {};
-    data.id = id_film_edit;
+    data.titolo_old = titolo;
+    data.genere_old = genere;
+    data.data_uscita_old = data_uscita;
+    data.orario0_old = orario0;
+    data.orario1_old = orario1;
+    data.orario2_old = orario2;
+    data.descrizione_old = descrizione;
+    data.durata_old = durata_film;
+    data.img_film_old = img_film_final;
 
-    //console.log(data);
+    data.titolo_new = titolo_new;
+    data.genere_new = genere_new;
+    data.data_uscita_new = data_uscita_new;
+    data.orario0_new = orario0_new;
+    data.orario1_new = orario1_new;
+    data.orario2_new = orario2_new;
+    data.descrizione_new = descrizione_new;
+    data.durata_new = durata_new;
+    data.img_film_new = img_film_final_new;
 
     $.ajax({
         type: "POST",
-        url: "./php/.php",
+        url: "./php/modifica_film.php",
         data: data,
         success: function(ret) {
             //console.log(ret);
             if (ret == "ok") {
-                $("#boxalert").html("<div id='tempalert' class='alert alert-success'>film eliminato correttamente!</div>");
-                removealert();
-                console.log("film eliminato correttamente!");
-                $("#Tablefilms").html = "";
-                showFilms();
+                //alert("Film memorizzato con successo!");
+                //window.open("./home.php", "_self");
             } else {
-                $("#boxalert").html("<div id='tempalert' class='alert alert-danger'>film non esistente</div>");
-                removealert();
-                //console.log("film non esistente!");
+                //alert("Film gia memorizzato");
+                //window.open("./home.php", "_self");
             }
         },
         error: function(ret) {

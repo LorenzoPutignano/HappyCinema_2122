@@ -99,6 +99,7 @@
                         </div>
                         <div id='removefilm' style='display: none;'></div>
                         <div id='Tablefilms' style='display: none;'></div>
+                        <div id='editFilm' style='display: none;'></div>
                         <div id='usertable' style='display: none;'></div>
 
                     </div>
