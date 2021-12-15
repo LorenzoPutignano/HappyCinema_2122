@@ -186,7 +186,6 @@
             </div>
         </div>
     </nav>
-
     <div id="content" class="d-flex flex-row justify-content-center flex-wrap container-fluid ">
         <div id="card"></div>
     </div>

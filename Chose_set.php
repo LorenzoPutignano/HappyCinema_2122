@@ -35,6 +35,10 @@ if($_SESSION['email'] != null){
             </body>
         </html>";
                 }else{
+                    $message = 'DEVI ACCEDERE O REGISTRARTI PER PRENOTARE UNO SPETTACOLO';
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+
                     header('location: ./index.php');
-                    echo 'Error cookie';
+                    
                 }
+?>
