@@ -23,7 +23,7 @@ if($_SESSION['email'] != null){
                 <title>Happy Cinema</title>
 
             </head>
-            <body onload=show_posti()>
+            <body onload=show_posti(),show_posti_occupati()>
                 <div class='container'>
                     <div class='screen'></div>
                 </div>

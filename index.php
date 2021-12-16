@@ -121,7 +121,6 @@
                         <div class="d-flex justify-content-center">
                             <form class="d-flex">
                                 <input class="filter" type="search" placeholder="Search" aria-label="Search" id="isearch">
-                                <!--<button class="btn btn-outline-success" type="submit" id="search">Search</button>-->
                             </form>
                         </div>
                     </li>
@@ -232,7 +231,6 @@
             })
         });
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 

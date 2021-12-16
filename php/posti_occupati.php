@@ -1,13 +1,18 @@
 <?php
 require 'conn_DB.php';
-$orario = $_POST['orario_film'];
-$id_film = $_POST['id_film'];
+$posto = $_POST['posto'];
+$film = $_POST['film'];
+$orario = $_POST['orario'];
+
+
 
 try {
-    $sql_query = "select n_posto from films where orario_sc='".$orario."' and id_film_cs='".$id_film."');";
-    //$sql_query = "select * from prenotazioni;";
-    $result = $conn -> query($sql_query);
-    echo $result;
+    $sql_query = "select * from prenotazioni where id_film_cs='".$film."' AND orario_sc='".$orario."'";
+    $result = $conn->query($sql_query);
+    foreach($result as $row){
+        echo $row["n_posto"].";";
+    }
+    
 } catch (PDOException $exc) {
     echo "error msg: " . $exc->getMessage();
 }

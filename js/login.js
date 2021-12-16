@@ -1,3 +1,4 @@
+let esiste = "";
 $(document).ready(function() {
     $("#registerbut").click(function(event) {
         //prendere valori da HTML
@@ -188,29 +189,37 @@ $(document).ready(function() {
             }
         });
     });
-
     $("#bt_ordine").click(function() {
+
         dati = $("#bt_ordine").val() + "|" + String(i);
         data = dati.split("|");
-        console.log(data);
         ajax_call_order(data[2], data[0], data[3], data[1]);
-        show_posti_occupati(data[1], data[0]);
     });
 
 
 });
 
-function show_posti_occupati(orario_film, id_film) {
+function show_posti_occupati(n_posto) {
+    dati = $("#bt_ordine").val() + "|" + String(i);
+    test = dati.split("|");
+
     var data = {};
-    data.orario = orario_film;
-    data.id__film = id_film;
+    data.posto = test[3];
+    data.film = test[0];
+    data.orario = test[1];
     $.ajax({
         type: "POST",
         url: "./php/posti_occupati.php",
         data: data,
         success: function(ret) {
             console.log(ret);
-            $(ret).hide();
+            butdis = ret.split(';');
+            console.log(butdis);
+            for (var f = 0; f < butdis.length - 1; f++) {
+                $('#' + butdis[f] + '').prop('disabled', true);
+                $('#' + butdis[f] + '').css("background-color", "#fa6472");
+
+            }
         },
         error: function(ret) {
 
@@ -343,7 +352,7 @@ function button(id) {
     if (i == 0) {
         i = id;
     } else {
-        i += "," + id;
+        i += ";" + id;
     }
     //console.log(i);
     bottone.disabled = true;
