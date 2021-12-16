@@ -241,7 +241,7 @@ function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
         data: data,
         success: function(ret) {
             console.log(ret);
-            window.open("index.php", "_self");
+            wsindow.open("index.php", "_self");
         },
         error: function(ret) {
 
