@@ -24,6 +24,7 @@ if($_SESSION['email'] != null){
 
             </head>
             <body onload=show_posti(),show_posti_occupati()>
+                <a class='navbar-brand' href='index.php'><img src='./img/Logo-Happy-Network.png'  width='190px' srcset=''></a>
                 <div class='container'>
                     <div class='screen'></div>
                 </div>
@@ -38,7 +39,7 @@ if($_SESSION['email'] != null){
                 }else{
                     $message = 'DEVI ACCEDERE O REGISTRARTI PER PRENOTARE UNO SPETTACOLO';
                     echo "<script type='text/javascript'>alert('$message');</script>";
-
+                    
                     header('location: ./index.php');
                     
                 }

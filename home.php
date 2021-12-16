@@ -51,7 +51,7 @@
                         </style>
                     </head>
                     <body onload=showFilms() style=text-align:center>
-                        <img src='./img/Logo-Happy-Network.png' width='200px'>
+                        <a class='navbar-brand' href='index.php'><img src='./img/Logo-Happy-Network.png'  width='190px' srcset=''></a>
                         <button type='button' id='log_out_admin' class='btn btn-primary'>LOG OUT</button>
                         <button type='button' id='bt_show_add_film' class='btn btn-primary'>ADD NEW FILM</button>
                         <button type='button' id='bt_show_remove_film' class='btn btn-primary'>REMOVE -/- EDIT FILM</button>
