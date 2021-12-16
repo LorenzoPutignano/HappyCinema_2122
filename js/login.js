@@ -112,6 +112,8 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "none");
         $("#updatefilm").css("display", "none");
+        $("#table_orders").css("display", "none");
+
 
 
     });
@@ -121,6 +123,8 @@ $(document).ready(function() {
         $("#removefilm").css("display", "block");
         $("#Tablefilms").css("display", "block");
         $("#updatefilm").css("display", "none");
+        $("#table_orders").css("display", "none");
+
 
 
     });
@@ -130,6 +134,8 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "block");
         $("#updatefilm").css("display", "none");
+        $("#table_orders").css("display", "none");
+
 
         $.ajax({
             type: "POST",
@@ -160,8 +166,27 @@ $(document).ready(function() {
         $("#usertable").css("display", "none");
         $("#updatefilm").css("display", "none");
         $("#table_orders").css("display", "block");
+        $.ajax({
+            type: "POST",
+            url: "./php/select_ordine.php",
+            success: function(ret) {
+                const ordine = ret.split("|");
+                //console.log(ordine);
+                var html_append = "";
+                html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">ID ORDINE</td><td style=\"border: 1px solid black;\">ID UTENTE</td><td style=\"border: 1px solid black;\">ID FILM</td><td style=\"border: 1px solid black;\">POSTO</td><td style=\"border: 1px solid black;\">ORARIO</td></tr>";
 
-        html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">ID UTENTE</td><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td style=\"border: 1px solid black;\">EMAIL</td></tr>";
+                for (var i = 0; i < ordine.length - 1; i++) {
+                    const campi = ordine[i].split(",")
+                    html_append += "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[0] + "</td><td style=\"border: 1px solid black;\">" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td><td style=\"border: 1px solid black;\">" + campi[4] + "</td></tr>";
+                    console.log(campi);
+                }
+                $("#table_orders").html(html_append);
+
+            },
+            error: function(ret) {
+
+            }
+        });
     });
 
     $("#bt_ordine").click(function() {
