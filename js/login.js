@@ -106,10 +106,6 @@ $(document).ready(function() {
         });
     });
 
-    $("#dati_prenotazione").click(function() {
-        alert("INVIO I DATI...");
-    });
-
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -169,6 +165,12 @@ $(document).ready(function() {
 
 });
 
+
+
+function send_Prenotazione(film_scelto, orario_scelto, id_utente_scelto) {
+    alert("ok");
+    console.log(film_scelto + orario_scelto + id_utente_scelto);
+}
 
 
 function ajax_call_ciao_film(id_film) {
