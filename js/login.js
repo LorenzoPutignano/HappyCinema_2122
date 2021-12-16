@@ -212,9 +212,9 @@ function show_posti_occupati(n_posto) {
         url: "./php/posti_occupati.php",
         data: data,
         success: function(ret) {
-            console.log(ret);
+            //console.log(ret);
             butdis = ret.split(';');
-            console.log(butdis);
+            //console.log(butdis);
             for (var f = 0; f < butdis.length - 1; f++) {
                 $('#' + butdis[f] + '').prop('disabled', true);
                 $('#' + butdis[f] + '').css("background-color", "#fa6472");
@@ -241,6 +241,7 @@ function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
         data: data,
         success: function(ret) {
             console.log(ret);
+            window.open("index.php", "_self");
         },
         error: function(ret) {
 
@@ -348,15 +349,37 @@ function orario_scelto(id) {
 }
 
 function button(id) {
+    var j = 0;
+    var e = 0;
     var bottone = document.getElementById(id);
+    elimina = false;
     if (i == 0) {
         i = id;
     } else {
         i += ";" + id;
     }
-    //console.log(i);
-    bottone.disabled = true;
     $("button#" + id + ".tim").css("background-color", "#ffffff8c");
+    console.log(i);
+    //console.log("i: " + i);
+    var split = i.split(";");
+    for (j = 0; j < split.length - 1; j++) {
+        if (split[j] == id) {
+            elimina = true;
+
+        }
+    }
+    if (elimina == true) {
+        for (j = 0; j < split.length - 2; j++) {
+            if (e == 0) {
+                e = split[j];
+            } else {
+                e += ";" + split[j];
+            }
+        }
+        i = e;
+        //console.log("i: " + i);
+        $("button#" + id + ".tim").css({ backgroundColor: 'rgba(0, 255, 255, 0.014)' });
+    }
 }
 
 var i = 0;
