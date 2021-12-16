@@ -165,7 +165,7 @@ $(document).ready(function() {
     });
 
     $("#bt_ordine").click(function() {
-        dati = $("#bt_ordine").val() + "|" + i;
+        dati = $("#bt_ordine").val() + "|" + String(i);
         data = dati.split("|");
         console.log(data);
         ajax_call_order(data[2], data[0], data[3], data[1]);
@@ -173,8 +173,6 @@ $(document).ready(function() {
 
 
 });
-
-
 
 
 function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
@@ -301,7 +299,7 @@ function button(id) {
     if (i == 0) {
         i = id;
     } else {
-        i += ";" + id;
+        i += "," + id;
     }
     //console.log(i);
     bottone.disabled = true;
