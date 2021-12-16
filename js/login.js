@@ -167,9 +167,9 @@ $(document).ready(function() {
 
 
 
-function send_Prenotazione(film_scelto, orario_scelto, id_utente_scelto) {
+function send_Prenotazione(film_scelto, orario_scelto, utente_usato) {
     alert("ok");
-    console.log(film_scelto + orario_scelto + id_utente_scelto);
+    console.log(orario_scelto);
 }
 
 
