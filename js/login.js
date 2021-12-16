@@ -105,6 +105,11 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("#dati_prenotazione").click(function() {
+        alert("INVIO I DATI...");
+    });
+
     $("#bt_show_add_film").click(function(event) {
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
@@ -163,6 +168,8 @@ $(document).ready(function() {
     });
 
 });
+
+
 
 function ajax_call_ciao_film(id_film) {
     var data = {};

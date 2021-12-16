@@ -24,10 +24,11 @@ if($_SESSION['email'] != null){
                     <div class='screen'></div>
                 </div>
                 <div style='text-align: center;'>
-                    <h2>FILM SCELTO : ".$_SESSION['id_film']."</h2><h2>ORARIO SCELTO : ".$_SESSION['orario_film']."</h2><h2>UTENTE : ".$_SESSION['id_utente']."</h2>
+                    <h2>SELEZIONA IL TUO POSTO</h2>
+                    <!--<h2>FILM SCELTO : ".$_SESSION['id_film']."</h2><h2>ORARIO SCELTO : ".$_SESSION['orario_film']."</h2><h2>UTENTE : ".$_SESSION['id_utente']."</h2>-->
                 </div>
                 <div align='center' id='table'></div>                
-                <button type='button' class='btn btn-primary'><h2>Conferma Posto</h2></button>
+                <button type='button' id='dati_prenotazione' class='btn btn-primary'><h2>Conferma Posto</h2></button>
                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
