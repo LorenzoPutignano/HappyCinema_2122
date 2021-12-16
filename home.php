@@ -101,6 +101,7 @@
                         <div id='removefilm' style='display: none;'></div>
                         <div id='Tablefilms' style='display: none;'></div>
                         <div id='usertable' style='display: none;'></div>
+                        <div id='table_orders' style='display: none;'></div>
                         <br>
 
                         <div id='updatefilm' style='display: none;'>

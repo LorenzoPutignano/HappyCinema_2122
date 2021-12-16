@@ -159,17 +159,42 @@ $(document).ready(function() {
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "none");
         $("#updatefilm").css("display", "none");
+        $("#table_orders").css("display", "block");
 
-
+        html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">ID UTENTE</td><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td style=\"border: 1px solid black;\">EMAIL</td></tr>";
     });
+
+    $("#bt_ordine").click(function() {
+        dati = $("#bt_ordine").val() + "|" + i;
+        data = dati.split("|");
+        console.log(data);
+        ajax_call_order(data[2], data[0], data[3], data[1]);
+    });
+
 
 });
 
 
 
-function send_Prenotazione(film_scelto, orario_scelto, utente_usato) {
-    alert("ok");
-    console.log(orario_scelto);
+
+function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
+    var data = {};
+    data.utente = id_utente_cs;
+    data.film = id_film_cs;
+    data.posto = n_posto;
+    data.orario = orario_sc;
+
+    $.ajax({
+        type: "POST",
+        url: "./php/ordine_confermato.php",
+        data: data,
+        success: function(ret) {
+            console.log(ret);
+        },
+        error: function(ret) {
+
+        }
+    });
 }
 
 
@@ -278,7 +303,7 @@ function button(id) {
     } else {
         i += ";" + id;
     }
-    console.log(i);
+    //console.log(i);
     bottone.disabled = true;
     $("button#" + id + ".tim").css("background-color", "#ffffff8c");
 }
