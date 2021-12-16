@@ -169,10 +169,29 @@ $(document).ready(function() {
         data = dati.split("|");
         console.log(data);
         ajax_call_order(data[2], data[0], data[3], data[1]);
+        show_posti_occupati(data[1], data[0]);
     });
 
 
 });
+
+function show_posti_occupati(orario_film, id_film) {
+    var data = {};
+    data.orario = orario_film;
+    data.id__film = id_film;
+    $.ajax({
+        type: "POST",
+        url: "./php/posti_occupati.php",
+        data: data,
+        success: function(ret) {
+            console.log(ret);
+            $(ret).hide();
+        },
+        error: function(ret) {
+
+        }
+    });
+}
 
 
 
