@@ -1,6 +1,8 @@
 let esiste = "";
 $(document).ready(function() {
     $("#registerbut").click(function(event) {
+        //al click del button "registerbut" vengono presi i valori dai campi input del register
+        //e vengono mandati al php tramite la function ajax_call_php_register se i campi non sono vuoti
         //prendere valori da HTML
         //console.log("cliccato register");
         var client_name_r = $("#client_name_register").val();
@@ -16,6 +18,8 @@ $(document).ready(function() {
 
     });
     $("#loginbut").click(function(event) {
+        //al click del button "loginbt" vengono presi i valori dai campi input del login
+        //e vengono mandati al php tramite la function ajax_call_php_login se i campi non sono vuoti
         var client_email = $("#client_email").val();
         var client_passw = $("#client_pass").val();
         console.log(client_passw + client_email);
@@ -27,6 +31,8 @@ $(document).ready(function() {
 
     });
     $("#admin_login_bt").click(function(event) {
+        //al click del button "admin_login_bt" vengono presi i valori dai campi input del log adm
+        //e vengono mandati al php tramite la function ajax_call_php_login_admin se i campi non sono vuoti
         //prendere valori da HTML
         //console.log("cliccato login");
         var id_admin = $("#id_admin").val();
@@ -39,6 +45,8 @@ $(document).ready(function() {
     });
 
     $("#bt_film").click(function(event) {
+        //dopo aver inserito i valori per inserire un nuovo film, al click del button "bt_film", si scatena la
+        //function ajax_call_films_add che carica i dati nella table films del DB cinema
         var img_film_start = $("#imgtosave").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final = img_film_ok.replace('Cfakepath', '');
@@ -59,6 +67,7 @@ $(document).ready(function() {
     });
 
     $("#bt_film_new").click(function(event) {
+        //modifica un film inserito e salvato nel DB in precedenza, apportando le nuove modifiche nel DB
         var img_film_start = $("#imgtosave_new").val();
         var img_film_ok = img_film_start.replace(/[\:/\\]/g, '');
         var img_film_final_new = img_film_ok.replace('Cfakepath', '');
@@ -81,6 +90,7 @@ $(document).ready(function() {
 
 
     $('#log_out').click(function(event) {
+        //al click di "log_out" per un user si riporta il valore del COOCKIE  a 0 e l'utente viene indirizzato alla pagina iniziale
         $.ajax({
             type: 'POST',
             url: './php/removecookie.php',
@@ -94,6 +104,8 @@ $(document).ready(function() {
         });
     });
     $('#log_out_admin').click(function(event) {
+        //al click di "log_out_admin" per un admin si riporta il valore del COOCKIE  a 0 e l'admin viene indirizzato alla pagina iniziale
+        //rispetto alla pagina di controllo home.php
         $.ajax({
             type: 'POST',
             url: './php/remove_admincookie.php',
@@ -108,6 +120,7 @@ $(document).ready(function() {
     });
 
     $("#bt_show_add_film").click(function(event) {
+        //al click del button "bt_show_add_film" diventerà visibile solo il div "addfilm", mentre tutti gli altri rimarranno nascosti
         $("#addfilm").css("display", "block");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
@@ -119,6 +132,8 @@ $(document).ready(function() {
 
     });
     $("#bt_show_remove_film").click(function(event) {
+        //al click del button "bt_show_remove_film" diventeranno visibili solo i div "removefilm" e "Tablefilms", 
+        //mentre tutti gli altri rimarranno nascosti
         $("#addfilm").css("display", "none");
         $("#usertable").css("display", "none");
         $("#removefilm").css("display", "block");
@@ -130,6 +145,7 @@ $(document).ready(function() {
 
     });
     $("#bt_show_user").click(function(event) {
+        //al click del button "bt_show_user" diventerà visibile solo il div "usertable", mentre tutti gli altri rimarranno nascosti
         $("#addfilm").css("display", "none");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
@@ -137,7 +153,7 @@ $(document).ready(function() {
         $("#updatefilm").css("display", "none");
         $("#table_orders").css("display", "none");
 
-
+        //tramite questa chiamata ajax si crea una tabella con id, nome e mail di tutti gli utenti registrati al sito
         $.ajax({
             type: "POST",
             url: "./php/select_user.php",
@@ -161,12 +177,16 @@ $(document).ready(function() {
     });
 
     $("#bt_show_orders").click(function(event) {
+        //al click del button "bt_show_orders" diventerà visibile solo il div "table_orders", mentre tutti gli altri rimarranno nascosti
         $("#addfilm").css("display", "none");
         $("#removefilm").css("display", "none");
         $("#Tablefilms").css("display", "none");
         $("#usertable").css("display", "none");
         $("#updatefilm").css("display", "none");
         $("#table_orders").css("display", "block");
+
+        //tramite questa chiamata ajax si crea una tabella con id_ordine, id_utente, id_film, posto e orario di tutte le 
+        //prenotazioni fatte dagli utenti per un film
         $.ajax({
             type: "POST",
             url: "./php/select_ordine.php",
@@ -190,7 +210,7 @@ $(document).ready(function() {
         });
     });
     $("#bt_ordine").click(function() {
-
+        //al click del button "bt_ordine" viene attivata la function ajax_call_order, atta a  registrare la prenotazione nel DB
         dati = $("#bt_ordine").val() + "|" + String(i);
         data = dati.split("|");
         ajax_call_order(data[2], data[0], data[3], data[1]);
@@ -200,6 +220,7 @@ $(document).ready(function() {
 });
 
 function show_posti_occupati(n_posto) {
+    //mostra i posti occupati oscurandoli in rosso
     dati = $("#bt_ordine").val() + "|" + String(i);
     test = dati.split("|");
 
@@ -229,6 +250,7 @@ function show_posti_occupati(n_posto) {
 
 
 function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
+    //memorizza la prenotazione nel DB
     var data = {};
     data.utente = id_utente_cs;
     data.film = id_film_cs;
@@ -241,7 +263,8 @@ function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
         data: data,
         success: function(ret) {
             console.log(ret);
-            wsindow.open("index.php", "_self");
+            window.open("index.php", "_self");
+
         },
         error: function(ret) {
 
@@ -251,6 +274,7 @@ function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
 
 
 function ajax_call_ciao_film(id_film) {
+    //mostra una table con tutti i campi del film che si vuole modificare
     var data = {};
     data.id = id_film;
     //console.log(data);
@@ -289,6 +313,7 @@ function ajax_call_ciao_film(id_film) {
 }
 
 function ajax_call_edit_film2(titolo_new, genere_new, data_uscita_new, orario0_new, orario1_new, orario2_new, descrizione_new, durata_new, img_film_final_new) {
+    //acchiappa e manda al file modifica_film.php i nuovi dati del film per effettuare l'UPLOAD
     var data = {};
     data.titolo_new = titolo_new;
     data.genere_new = genere_new;
@@ -349,6 +374,7 @@ function orario_scelto(id) {
 }
 
 function button(id) {
+    //cambia lo sfondo del button a seconda che il posto sia prenotato, disponibile o selezionato
     var j = 0;
     var e = 0;
     var bottone = document.getElementById(id);
@@ -385,6 +411,7 @@ function button(id) {
 var i = 0;
 
 function show_posti() {
+    //crea una table attraverso un for con all'interno tutti i button per selezionare i posti
     var par = $("#table").html("");
     var i = 0;
     var j = 0;
@@ -404,6 +431,7 @@ function show_posti() {
 
 
 function showFilms() {
+    //crea una table con id e titolo dei film già esistenti nel momento in cui clicchi add film nella schermata di admin
     $.ajax({
         type: 'POST',
         url: './php/films.php',
@@ -433,6 +461,7 @@ function showFilms() {
 }
 
 function removealert() {
+    //alert temporizzati
     window.setTimeout(function() {
         $("#tempalert").fadeTo(1000, 0).slideUp(1000, function() {
             $(this).remove();
@@ -442,6 +471,7 @@ function removealert() {
 }
 
 function ajax_call_remove_film(id_film) {
+    //rimuove un film 
     var data = {};
     data.id = id_film;
 
@@ -473,6 +503,7 @@ function ajax_call_remove_film(id_film) {
 
 
 function ajax_search_film(search) {
+    //nella pagina principale cerca un film facendo un controllo sulle iniziali e lo mette in sovraimpressione
     var data = {};
     data.titolo = search;
     //console.log(data);
@@ -504,38 +535,8 @@ function ajax_search_film(search) {
     });
 }
 
-
-
-function ajax_call_films_show_table() {
-    $.ajax({
-        type: "POST",
-        url: "./php/films.php",
-
-        success: function(ret) {
-            //console.log(ret)
-            const nome = ret.split("|");
-            var length = nome.length;
-            var html_append = "";
-
-            $("#par").html("");
-            html_append += "<table class=\"table\" style=\"border: 1px solid black;\"><tr><td style=\"border: 1px solid black;\">Nome</td><td style=\"border: 1px solid black;\">Cognome</td><td>Classe</td><td style=\"border: 1px solid black;\">Sesso</td></tr>";
-
-            for (var i = 0; i < length - 1; i++) {
-                const campi = nome[i].split(";")
-                html_append += "<tr><td style=\"border: 1px solid black;>" + campi[0] + "</td><td style=\"border: 1px solid black;\" >" + campi[1] + "</td><td style=\"border: 1px solid black;\">" + campi[2] + "</td><td style=\"border: 1px solid black;\">" + campi[3] + "</td></tr>";
-            }
-            //console.log(nome);
-            html_append += "</table>";
-            $("#Tablefilms").append(html_append);
-
-        },
-        error: function(ret) {
-
-        }
-    });
-}
-
 function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orario2, descrizione, durata_film, img_film_final) {
+    //acchiappa i valori inseriti nel form di insert film e li salva nel DB come nuovo film
     var data = {};
     data.titolo = titolo;
     data.genere = genere;
@@ -569,6 +570,7 @@ function ajax_call_films_add(titolo, genere, data_uscita, orario0, orario1, orar
 }
 
 function ajax_call_php_register(client_name_r, client_surname_r, client_email_r, client_passw_r) {
+    //effettua la registrazione di un nuovo utente nel DB
     var data = {};
     data.name_r = client_name_r;
     data.surname_r = client_surname_r;
@@ -596,6 +598,7 @@ function ajax_call_php_register(client_name_r, client_surname_r, client_email_r,
 //admin connection
 
 function ajax_call_php_login_admin(id_admin, admin_passw) {
+    //function di login admin che reindirizza alla pagina di admin (home.php)
     var data = {};
     data.id = id_admin;
     data.passwd = admin_passw;
@@ -625,6 +628,7 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
 
 
 function ajax_call_php_login(client_email, client_passw) {
+    //function di login utente
     var data = {};
     data.email = client_email;
     data.passwd = client_passw;
