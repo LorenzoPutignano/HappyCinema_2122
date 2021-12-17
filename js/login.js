@@ -241,7 +241,7 @@ function ajax_call_order(id_utente_cs, id_film_cs, n_posto, orario_sc) {
         data: data,
         success: function(ret) {
             console.log(ret);
-            window.open("index.php", "_self");
+            wsindow.open("index.php", "_self");
         },
         error: function(ret) {
 
@@ -613,7 +613,8 @@ function ajax_call_php_login_admin(id_admin, admin_passw) {
                 $.post("./save_to_cookie.php", data);
                 window.open("./home.php", "_self");
             } else {
-                $("#paragrafoerror").html("<h3 style='text-align:center;color: #ee0000 !important;'>Wrong Acces!</h3>");
+                $("#paragrafoerror").html("<div id='tempalert' class='alert alert-warning'>Utente non esistente! Effettua il login</div>");
+                removealert();
             }
         },
         error: function(ret) {

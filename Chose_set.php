@@ -11,6 +11,7 @@ if($_SESSION['email'] != null){
                 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
                 <!-- Required meta tags -->
                 <meta charset='utf-8'>
+                <script src='https://smtpjs.com/v3/smtp.js'></script>
                 <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
                 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -24,6 +25,7 @@ if($_SESSION['email'] != null){
 
             </head>
             <body onload=show_posti(),show_posti_occupati()>
+                <a class='navbar-brand' href='index.php'><img src='./img/Logo-Happy-Network.png'  width='190px' srcset=''></a>
                 <div class='container'>
                     <div class='screen'></div>
                 </div>
@@ -38,7 +40,7 @@ if($_SESSION['email'] != null){
                 }else{
                     $message = 'DEVI ACCEDERE O REGISTRARTI PER PRENOTARE UNO SPETTACOLO';
                     echo "<script type='text/javascript'>alert('$message');</script>";
-
+                    
                     header('location: ./index.php');
                     
                 }

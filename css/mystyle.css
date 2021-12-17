@@ -38,8 +38,8 @@ nav.navbar {
     -webkit-box-shadow: 0px 15px 26px -3px #090A0B !important;
     box-shadow: 0px 15px 26px -3px #090A0B !important;
     max-height: 100% !important;
-    margin-left: 20px !important;
-    margin-right: 10px !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
     border-radius: 0px 0px 30px 30px !important;
 }
 
@@ -128,10 +128,19 @@ nav.navbar {
     padding-left: 50px;
 }
 
-#loginbut,
+#admin_login_bt {
+    width: 100%;
+    height: 30%;
+}
+
+#loginbut {
+    width: 100%;
+    height: 30%;
+}
+
 #registerbut {
     width: 100%;
-    height: 40%;
+    height: 20%;
 }
 
 button.orariobutton {

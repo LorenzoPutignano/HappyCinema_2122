@@ -47,7 +47,7 @@
 
 <body onload="showcard()">
     <nav class="navbar fixed-top navbar-light">
-        <a class="navbar-brand" href="#"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
+        <a class="navbar-brand" href="index.php"><img src="./img/Logo-Happy-Network.png" alt="" width="190px" srcset=""></a>
         <div class="d-flex justify-content-end">
         <?php
             session_start();
@@ -59,9 +59,17 @@
                 </button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
-                            <button id='log_out'>
+                            <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' id='log_out'>
                                 <span>
                                     <h5>Log Out</h5>
+                                </span>
+                            </button>
+                        </li>
+                        <br>
+                        <li>
+                            <button id='my_orders' class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasorders' aria-controls='offcanvasNavbar'>
+                                <span>
+                                    <h5>My Orders</h5>
                                 </span>
                             </button>
                         </li>
@@ -86,6 +94,7 @@
                                 </span>
                             </button>
                         </li>
+                        <br>
                         <li>
                             <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasregister' aria-controls='offcanvasNavbar'>
                                 <span>
@@ -93,10 +102,11 @@
                                 </span>
                             </button>
                         </li>
+                        <br>
                         <li>
                             <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvaslogin_admin' aria-controls='offcanvasNavbar'>
                                 <span>
-                                    <h5>Log Adm</h5>
+                                    <h5>Log Admin</h5>
                                 </span>
                             </button>
                         </li>
@@ -137,8 +147,25 @@
                         <div class="d-flex justify-content-center">
                             <form id="loginmenu" required>
                                 <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="client_email" aria-describedby="basic-addon1" required><br>
-                                <input type="password" id="client_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
-                                <button type="submit" id="loginbut" class="btn btn-primary">login</button>
+                                <input type="password" id="client_pass" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required><br>
+                                <button type="submit" id="loginbut" class="btn btn-primary">Login</button>
+                                <div id="boxalert"></div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end d-flex" tabindex="-1" id="offcanvasorders" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item dropdown">
+                        <div class="d-flex justify-content-center">
+                            <form id="orders" required>
+                                metti gli ordini dell'utente :D
                             </form>
                         </div>
                     </li>
@@ -157,7 +184,7 @@
                                 <input type="name" class="form-control" placeholder="Nome" aria-label="Nome" id="client_name_register" aria-describedby="basic-addon1" required><br>
                                 <input type="name" class="form-control" placeholder="Cognome" aria-label="Nome" id="client_surname_register" aria-describedby="basic-addon1" required><br>
                                 <input type="email" class="form-control" placeholder="Email" aria-label="Username" id="client_email_register" aria-describedby="basic-addon1" required><br>
-                                <input type="password" id="client_pass_register" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="client_pass_register" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required><br>
                                 <button type="button" id="registerbut" class="btn btn-primary">Register</button>
                             </form>
                         </div>
@@ -174,9 +201,9 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="login_admin_menu" method="POST" enctype="multipart/form-data" action="save_to_cookie.php">
-                                <input type="text" class="form-control" placeholder="id" aria-label="id" id="id_admin" aria-describedby="basic-addon1" required><br>
-                                <input type="password" id="admin_pass" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" required><br>
-                                <button type="button" id="admin_login_bt" class="btn btn-primary">admin login</button>
+                                <input type="text" class="form-control" placeholder="Id" aria-label="id" id="id_admin" aria-describedby="basic-addon1" required><br>
+                                <input type="password" id="admin_pass" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required><br>
+                                <button type="button" id="admin_login_bt" class="btn btn-primary">Admin Login</button>
                                 <div id="paragrafoerror"></div>
                             </form>
                         </div>
