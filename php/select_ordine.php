@@ -1,6 +1,6 @@
 <?php
 require 'conn_DB.php';
-
+//file che permette di visualizzare tutti gli ordini 
 try {
     $sql_query = "SELECT * FROM prenotazioni";    
     $result = $conn->query($sql_query);

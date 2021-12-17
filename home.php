@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset='utf-8'></meta>
+        <link rel="icon" type="image/x-icon" href="./img/Favico.png">
     </head>
     <body>
         <h1>

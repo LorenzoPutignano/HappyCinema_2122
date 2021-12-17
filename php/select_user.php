@@ -1,6 +1,6 @@
 <?php
 require 'conn_DB.php';
-
+//file che permette di visualizzare tutti gli utenti registrati al DB
 try {
     $sql_query = "SELECT * FROM utente";    
     $result = $conn->query($sql_query);

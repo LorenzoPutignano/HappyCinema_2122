@@ -1,5 +1,6 @@
 <?php
 require 'conn_DB.php';
+//file che permette il print delle card, prende tutto dalla db e manda solo la parte inerente ai film
 
 try {
     $sql_query = "SELECT * FROM films";    

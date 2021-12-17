@@ -7,6 +7,8 @@ $email_r = $_POST['email_r'];
 $pass_r = $_POST['passwd_r'];
 $pass_cript_r = hash('sha256',$pass_r);
 
+//funzione che permette di registrare un utente al DB
+
 try {
     $query = "INSERT INTO utente (nome, cognome,email,password) SELECT * FROM (SELECT'".$nome_r."','".$cognome_r."','".$email_r."','".$pass_cript_r."')"."AS tmp WHERE NOT EXISTS (SELECT email, password FROM utente where email='".$email_r."'"."and password='".$pass_cript_r."') LIMIT 1;";
     $result = $conn->query($query);

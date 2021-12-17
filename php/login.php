@@ -6,6 +6,8 @@ $pass_cript = hash('sha256',$pass);
 setcookie("email", $email);
 setcookie("passw", $passw);
 
+//file che permette l'accesso come cliente
+
 try {
     $sql_query = "select nome,email,password from utente where email='".$email."' and password='".$pass_cript."'";
     $result = $conn->query($sql_query);
