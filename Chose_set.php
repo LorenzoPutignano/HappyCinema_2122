@@ -25,6 +25,20 @@ if($_SESSION['email'] != null){
                 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
 
                 <title>Happy Cinema</title>
+                <script src='https://smtpjs.com/v3/smtp.js'></script>
+                <script>
+                function sendmail() {
+                    Email.send({
+                        SecureToken: '63a34a4d-dac3-4f0d-a569-f865f9e835ed',
+                        To: '".$_SESSION['email']."',
+                        From: 'lorenzoptg0@gmail.com',
+                        Subject: 'POSTO RISERVATO',
+                        Body: 'Il tuo ordine è stato confermato con successo'
+                    }).then(
+                        message => alert(message)
+                    );
+                }
+                </script>
 
             </head>
             <body onload=show_posti(),show_posti_occupati()>
@@ -36,7 +50,7 @@ if($_SESSION['email'] != null){
                     <h2>SELEZIONA IL TUO POSTO</h2>
                 </div>
                 <div align='center' id='table'></div>                
-                <button id='bt_ordine' value='$film_scelto|".$orario_scelto."|$utente_usato' class='btn btn-primary'><h2>CONFERMA POSTO</h2></button>
+                <button id='bt_ordine' onclick='sendmail()' value='$film_scelto|".$orario_scelto."|$utente_usato' class='btn btn-primary'><h2>CONFERMA POSTO</h2></button>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
                 </body>
         </html>";

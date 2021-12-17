@@ -8,22 +8,22 @@
     <title>Document</title>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "happycinema@gmail.com",
-            Password: "15E53EFC9CA965980351FE9ACF978FC0948D",
-            To: 'lorenzoptg0@gmail.com',
-            From: "happycinema@gmail.com",
-            Subject: "This is the subject",
-            Body: "And this is the body"
-        }).then(
-            message => alert(message)
-        );
+        function sendmail() {
+            Email.send({
+                SecureToken: "63a34a4d-dac3-4f0d-a569-f865f9e835ed",
+                To: 'mixake2490@veb27.com',
+                From: "lorenzoptg0@gmail.com",
+                Subject: "This is the subject",
+                Body: "And this is the body"
+            }).then(
+                message => alert(message)
+            );
+        }
     </script>
 </head>
 
 <body>
-    <button>ok</button>
+    <button onclick="sendmail()">ok</button>
 </body>
 
 </html>
