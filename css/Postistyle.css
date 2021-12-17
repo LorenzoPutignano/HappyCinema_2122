@@ -6,7 +6,7 @@
             /* Do not repeat the image */
             background-size: cover;
             color: whitesmoke !important;
-            font-family: fantasy !important;
+            font-family: Arial !important;
         }
         
         button.btn.btn-primary {
