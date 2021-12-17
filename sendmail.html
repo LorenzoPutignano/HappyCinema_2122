@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "happycinema@gmail.com",
+            Password: "15E53EFC9CA965980351FE9ACF978FC0948D",
+            To: 'lorenzoptg0@gmail.com',
+            From: "happycinema@gmail.com",
+            Subject: "This is the subject",
+            Body: "And this is the body"
+        }).then(
+            message => alert(message)
+        );
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
