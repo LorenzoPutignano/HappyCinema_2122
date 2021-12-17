@@ -1,4 +1,6 @@
 <?php
+//una volta effettuato il logout da parte dell'utente vengono cancellati i cookie e le sessioni relative
+
     setcookie("email", null);
     setcookie("passw", null);
     setcookie("nome", null);

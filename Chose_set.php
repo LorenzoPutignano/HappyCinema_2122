@@ -1,4 +1,6 @@
 <?php
+
+//file che permette solo se si e loggati di accedere alla pagina della scelta del posto per la prenotazione
 session_start();
 $film_scelto = $_SESSION['id_film'];
 $orario_scelto = $_SESSION['orario_film'];

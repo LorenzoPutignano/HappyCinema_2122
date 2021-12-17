@@ -2,6 +2,7 @@
 require 'conn_DB.php';
 session_start();
 $id = $_POST['id'];
+//prendo l'id salvato nelle sessioni per stamparli
 $_SESSION['id_final'] = $id;
 
 try {

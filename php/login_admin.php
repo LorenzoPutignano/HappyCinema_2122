@@ -4,6 +4,8 @@ $id = $_POST['id'];
 $pass = $_POST['passwd'];
 $pass_cript = hash('sha256',$pass);
 
+//file che permette l'accesso come admin
+
 
 try {
     $sql_query = "select id, password from admin_user where id='".$id."' and password='".$pass_cript."'";

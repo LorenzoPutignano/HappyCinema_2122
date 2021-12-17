@@ -1,4 +1,5 @@
 <?php
+//file che permette di salvare in memoria i dati dell'utente
     $email = $_POST['email'];
     $passw = $_POST['passwd'];
     $nome = $_POST['nome'];

@@ -1,4 +1,5 @@
 <?php
+//file che prendendo in input l'id del film lo elimina
 require 'conn_DB.php';
 $id = $_POST['id'];
 

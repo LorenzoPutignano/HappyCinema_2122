@@ -11,6 +11,7 @@ $duratafilm = $_POST['durata_film'];
 $img_film_name = $_POST['img_film'];
 
 
+//prende in input le varie celle dei film e le inserisce nelle tabelle
 
 try {
     $sql_query = "INSERT INTO films (titolo,genere,data_uscita,orario_0,orario_1,orario_2,descrizione,durata_film,img_film) values ('".$titolo."','".$genere."','".$data_uscita."','".$orario1."','".$orario2."','".$orario3."','".$descrizione."','".$duratafilm."','".$img_film_name."')";
