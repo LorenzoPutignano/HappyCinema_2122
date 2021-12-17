@@ -213,7 +213,7 @@ $(document).ready(function() {
         //al click del button "bt_ordine" viene attivata la function ajax_call_order, atta a  registrare la prenotazione nel DB
         dati = $("#bt_ordine").val() + "|" + String(i);
         data = dati.split("|");
-        sendmail();
+
         ajax_call_order(data[2], data[0], data[3], data[1]);
 
     });
@@ -221,15 +221,16 @@ $(document).ready(function() {
 
 });
 
+//funzione che manda mail di conferma
 function sendmail() {
     Email.send({
         SecureToken: '63a34a4d-dac3-4f0d-a569-f865f9e835ed',
         To: client_email,
         From: 'lorenzoptg0@gmail.com',
-        Subject: 'POSTO RISERVATO',
+        Subject: 'HAPPY-CINEMA [POSTO RISERVATO]',
         Body: 'Il tuo ordine è stato confermato con successo'
     }).then(
-        message => alert(message)
+        client_email => alert(client_email)
     );
 }
 
