@@ -55,8 +55,8 @@
                 echo  "<div class='container-fluid'> 
                 <div class='btn-group' role='group'>
                     <button id='btnGroupDrop1' type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                  <img src='./img/utente.png' id='imguser' alt=''>".$_COOKIE['nome']."
-                </button>
+                  <img src='./img/utente.png' id='imguser' alt=''><b>".$_COOKIE['nome']."
+                </b></button>
                     <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>
                         <li>
                             <button class='navbar-toggler' type='button' data-bs-toggle='offcanvas' id='log_out'>
@@ -130,6 +130,7 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form class="d-flex">
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
                                 <input class="filter" type="search" placeholder="Search" aria-label="Search" id="isearch">
                             </form>
                         </div>
@@ -165,7 +166,7 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex justify-content-center">
                             <form id="orders" required>
-                                metti gli ordini dell'utente :D
+                                <h1>ORDINI EFFETTUATI</h1>
                             </form>
                         </div>
                     </li>
